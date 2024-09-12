@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Search Screen'),
+      ),
+      body: Center(
+        child: TextField(
+          onChanged: (text) {
+            // Handle search text change here
+            print('Search text changed: $text');
+          },
+        ),
+      ),
+    );
+  }
+}
