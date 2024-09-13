@@ -12,16 +12,9 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search Screen'),
+        title: Text(' YuiX Search Screen'),
       ),
-      body: Center(
-        child: TextField(
-          onChanged: (text) {
-            // Handle search text change here
-            print('Search text changed: $text');
-          },
-        ),
-      ),
+      body: Center(child: Text("Search Screen")),
     );
   }
 }
