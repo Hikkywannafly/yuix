@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iconsax/iconsax.dart';
 
 class BottomNavigation extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -17,30 +18,30 @@ class BottomNavigation extends StatelessWidget {
       bottomNavigationBar: SalomonBottomBar(
         items: [
           SalomonBottomBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Iconsax.home),
             title: Text('Home'),
             selectedColor: Colors.blue,
           ),
           SalomonBottomBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(Iconsax.search_normal_1),
             title: Text('Search'),
             selectedColor: Colors.red,
           ),
           SalomonBottomBarItem(
-            icon: Icon(Icons.notifications),
-            title: Text('Notifications'),
+            icon: Icon(Iconsax.bookmark),
+            title: Text('Bookmark'),
             selectedColor: Colors.green,
           ),
           SalomonBottomBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Iconsax.setting),
             title: Text('Setting'),
-            selectedColor: Colors.purple,
+            selectedColor: const Color.fromARGB(255, 135, 104, 141),
           ),
         ],
         currentIndex: navigationShell.currentIndex,
         onTap: (int index) => {navigationShell.goBranch(index), print(index)},
         margin: const EdgeInsets.all(18.0),
-        backgroundColor: const Color(0xff443a49),
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
     );
   }
