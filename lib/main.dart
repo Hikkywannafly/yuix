@@ -1,9 +1,16 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:yuix/routers/router.dart';
 import 'package:yuix/themes/theme.dart';
+import 'package:yuix/themes/themeProvider.dart';
 
 Future<void> main() async {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => Themeprovider())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
