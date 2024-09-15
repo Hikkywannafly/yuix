@@ -25,22 +25,22 @@ class BottomNavigation extends StatelessWidget {
           SalomonBottomBarItem(
             icon: Icon(Iconsax.search_normal_1),
             title: Text('Search'),
-            selectedColor: Colors.red,
+            selectedColor: const Color.fromARGB(255, 247, 132, 195),
           ),
           SalomonBottomBarItem(
             icon: Icon(Iconsax.bookmark),
             title: Text('Bookmark'),
-            selectedColor: Colors.green,
+            selectedColor: const Color.fromARGB(255, 250, 178, 96),
           ),
           SalomonBottomBarItem(
             icon: Icon(Iconsax.setting),
             title: Text('Setting'),
-            selectedColor: const Color.fromARGB(255, 135, 104, 141),
+            selectedColor: const Color.fromARGB(255, 142, 131, 145),
           ),
         ],
         currentIndex: navigationShell.currentIndex,
         onTap: (int index) => {navigationShell.goBranch(index), print(index)},
-        margin: const EdgeInsets.all(18.0),
+        margin: const EdgeInsets.all(8.0),
         backgroundColor: Theme.of(context).colorScheme.surface,
       ),
     );

@@ -23,7 +23,6 @@ final GoRouter router = new GoRouter(
             return BottomNavigation(navigationShell: navigationShell);
           },
           branches: <StatefulShellBranch>[
-            // The route branch for the first tab of the bottom navigation bar.
             StatefulShellBranch(
               navigatorKey: _homeNavigatorKey,
               routes: <RouteBase>[
@@ -34,7 +33,6 @@ final GoRouter router = new GoRouter(
                 ),
               ],
             ),
-
             StatefulShellBranch(
               navigatorKey: _searchNavigatorKey,
               routes: <RouteBase>[
