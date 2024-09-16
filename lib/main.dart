@@ -1,7 +1,7 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:yuix/routers/router.dart';
-import 'package:yuix/themes/themeProvider.dart';
+import 'package:yuix/themes/ThemeProvider.dart';
 
 Future<void> main() async {
   runApp(

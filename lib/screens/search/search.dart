@@ -12,9 +12,9 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(' YuiX Search Screen'),
+        title: const Text(' YuiX Search Screen'),
       ),
-      body: Center(child: Text("Search Screen")),
+      body: const Center(child: Text("Search Screen")),
     );
   }
 }

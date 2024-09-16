@@ -18,23 +18,23 @@ class BottomNavigation extends StatelessWidget {
       bottomNavigationBar: SalomonBottomBar(
         items: [
           SalomonBottomBarItem(
-            icon: Icon(Iconsax.home),
-            title: Text('Home'),
+            icon: const Icon(Iconsax.home),
+            title: const Text('Home'),
             selectedColor: Colors.blue,
           ),
           SalomonBottomBarItem(
-            icon: Icon(Iconsax.search_normal_1),
-            title: Text('Search'),
+            icon: const Icon(Iconsax.search_normal_1),
+            title: const Text('Search'),
             selectedColor: const Color.fromARGB(255, 247, 132, 195),
           ),
           SalomonBottomBarItem(
-            icon: Icon(Iconsax.bookmark),
-            title: Text('Bookmark'),
+            icon: const Icon(Iconsax.bookmark),
+            title: const Text('Bookmark'),
             selectedColor: const Color.fromARGB(255, 250, 178, 96),
           ),
           SalomonBottomBarItem(
-            icon: Icon(Iconsax.setting),
-            title: Text('Setting'),
+            icon: const Icon(Iconsax.setting),
+            title: const Text('Setting'),
             selectedColor: const Color.fromARGB(255, 142, 131, 145),
           ),
         ],
