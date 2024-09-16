@@ -62,7 +62,8 @@ ThemeData darkMode = ThemeData(
   textTheme: const TextTheme(
     bodyLarge: TextStyle(color: Colors.white),
     bodyMedium: TextStyle(color: Colors.white),
-    titleLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    titleLarge: TextStyle(
+        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
     bodySmall: TextStyle(
         color: Colors.grey, fontSize: 12), // Updated to a lighter color
   ),

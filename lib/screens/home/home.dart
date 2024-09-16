@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:yuix/themes/themeProvider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,13 +22,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('YuiX Route shell demo'),
+        title: Text('YuiX'),
+        actions: [
+          IconButton(
+            icon: Icon(
+              themeProvider.isDarkMode ? Iconsax.moon : Icons.sunny,
+            ),
+            onPressed: themeProvider.toggleTheme,
+          )
+        ],
       ),
-      body: Center(
-        child: Text('Selected Index: $_currentIndex'),
-      ),
+      body: Container(
+        
+      )
     );
   }
 }
