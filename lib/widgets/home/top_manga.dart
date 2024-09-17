@@ -11,6 +11,7 @@ final List<String> imgList = [
 ];
 final List<Widget> imageSliders = imgList.map((item) {
   return Container(
+    margin: const EdgeInsets.all(3.0),
     child: ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(10.0)),
       child: Stack(
@@ -63,12 +64,13 @@ class _TopMangaState extends State<TopManga> {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        autoPlay: true,
-        viewportFraction: 0.85,
-        autoPlayAnimationDuration: Duration(milliseconds: 800),
+        viewportFraction: 0.9,
+        autoPlayAnimationDuration: const Duration(milliseconds: 800),
         autoPlayCurve: Curves.fastOutSlowIn,
+        autoPlay: true,
         aspectRatio: 2.0,
         enlargeCenterPage: true,
+        enlargeStrategy: CenterPageEnlargeStrategy.height,
       ),
       items: imageSliders,
     );

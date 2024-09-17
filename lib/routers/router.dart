@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yuix/screens/home/home.dart';
 import 'package:yuix/screens/search/search.dart';
-import 'package:yuix/widgets/SalomonBottomBar.dart';
+import 'package:yuix/widgets/salomon_bottom_bar.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
