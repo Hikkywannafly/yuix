@@ -36,26 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
           TopManga(),
           SizedBox(height: 20),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Gender(),
           ),
         ],
       ),
     );
   }
-  // Widget _buildContent() {
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: [
-  //       const TopManga(),
-  //       const SizedBox(height: 20),
-  //       Padding(
-  //         padding: const EdgeInsets.symmetric(horizontal: 20),
-  //         child: const Gender(),
-  //       ),
-  //     ],
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {

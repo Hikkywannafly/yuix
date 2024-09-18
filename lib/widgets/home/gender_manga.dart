@@ -12,6 +12,7 @@ class Gender extends StatefulWidget {
 class _GenderState extends State<Gender> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: const Text("sds"));
+    return Container(
+        padding: const EdgeInsets.all(0), child: const Text("sds"));
   }
 }
