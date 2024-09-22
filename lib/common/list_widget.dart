@@ -24,7 +24,7 @@ class ListWidget extends StatelessWidget {
           border: Border.all(color: Colors.black.withOpacity(0.1), width: 0.5),
           boxShadow: [
             BoxShadow(
-                color: const Color(0xFFE2E8F1).withOpacity(0.2),
+                color: const Color.fromARGB(255, 161, 191, 235).withOpacity(0.2),
                 spreadRadius: 0.1,
                 blurRadius: 1),
           ],
