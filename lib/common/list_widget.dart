@@ -24,69 +24,66 @@ class ListWidget extends StatelessWidget {
           border: Border.all(color: Colors.black.withOpacity(0.1), width: 0.5),
           boxShadow: [
             BoxShadow(
-                color: const Color.fromARGB(255, 161, 191, 235).withOpacity(0.2),
+                color:
+                    const Color.fromARGB(255, 161, 191, 235).withOpacity(0.2),
                 spreadRadius: 0.1,
                 blurRadius: 1),
           ],
           borderRadius: BorderRadius.circular(10),
         ),
-        width: Get.width * 0.4,
-        child: Column(
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  media!.coverImage!.large.toString(),
-                  loadingBuilder: ((context, child, loadingProgress) {
-                    if (loadingProgress == null) {
-                      return Image.network(media!.coverImage!.large.toString());
-                    }
-                    return Container(
-                      color: itsColor,
-                    );
-                  }),
-                ),
-              ),
-
-              //     child: Container(
-              //       decoration: BoxDecoration(
-              //         boxShadow:  [
-              //   BoxShadow(
-              //     color:const Color(0xFFE2E8F1).withOpacity(1),
-              //     spreadRadius: 2,
-              //     blurRadius: 3
-              //   ),
-              // ],
-              //         borderRadius: BorderRadius.circular(10),
-              //         image: DecorationImage(
-              //           image: NetworkImage(media!.coverImage!.large.toString(),
-
-              //           ),
-              //           fit: BoxFit.cover,
-              //         ),
-              //       ),
-              //     ),
-            ),
-            SizedBox(
-              height: Get.height * 0.04,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 5.0,
-                  left: 3,
-                  right: 3,
-                ),
-                child: media!.title!.userPreferred!.text
-                    .fontWeight(FontWeight.w600)
-                    .color(Colors.black87)
-                    .align(TextAlign.center)
-                    .fontWeight(FontWeight.w500)
-                    .minFontSize(12)
-                    .maxFontSize(13)
-                    .makeCentered(),
+        child: Container(
+          child: Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.network(
+                media!.coverImage!.large.toString(),
+                loadingBuilder: ((context, child, loadingProgress) {
+                  if (loadingProgress == null) {
+                    return Image.network(media!.coverImage!.large.toString());
+                  }
+                  return Container(
+                    color: itsColor,
+                  );
+                }),
               ),
             ),
-          ],
+
+            //     child: Container(
+            //       decoration: BoxDecoration(
+            //         boxShadow:  [
+            //   BoxShadow(
+            //     color:const Color(0xFFE2E8F1).withOpacity(1),
+            //     spreadRadius: 2,
+            //     blurRadius: 3
+            //   ),
+            // ],
+            //         borderRadius: BorderRadius.circular(10),
+            //         image: DecorationImage(
+            //           image: NetworkImage(media!.coverImage!.large.toString(),
+
+            //           ),
+            //           fit: BoxFit.cover,
+            //         ),
+            //       ),
+            //     ),
+          ),
+          // SizedBox(
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(
+          //       top: 5.0,
+          //       left: 3,
+          //       right: 3,
+          //     ),
+          //     child: media!.title!.userPreferred!.text
+          //         .fontWeight(FontWeight.w600)
+          //         .color(Colors.black87)
+          //         .align(TextAlign.center)
+          //         .fontWeight(FontWeight.w500)
+          //         .minFontSize(12)
+          //         .maxFontSize(13)
+          //         .makeCentered(),
+          //   ),
+          // ),
         ),
       ),
     );

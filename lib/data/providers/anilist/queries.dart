@@ -257,6 +257,8 @@ query(
       id
       title {
         userPreferred
+        romaji
+        english
       }
       coverImage {
         extraLarge
@@ -520,6 +522,8 @@ query(
       id
       title {
         userPreferred
+        romaji
+        english
       }
       coverImage {
         extraLarge
