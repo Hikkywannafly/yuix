@@ -16,6 +16,8 @@ class TopManga extends StatefulWidget {
 class _TopMangaState extends State<TopManga> {
   @override
   Widget build(BuildContext context) {
+    const String proxyUrl =
+        'https://goodproxy.goodproxy.workers.dev/fetch?url=';
     return Query(
       options: QueryOptions(
           document: gql(allTimePopularQuery),
@@ -33,42 +35,51 @@ class _TopMangaState extends State<TopManga> {
         final List<Media> mediaObjects =
             mediaList.map((json) => Media.fromJson(json)).toList();
         final List<Widget> imageSliders = mediaObjects.map<Widget>((image) {
-          return 
-          Container(
+          return Container(
             margin: const EdgeInsets.all(3.0),
             child: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               child: Stack(
                 children: <Widget>[
-                  Image.network(image.bannerImage!.toString(),
-                      fit: BoxFit.cover, width: double.infinity),
-                  // Positioned(
-                  //   bottom: 0.0,
-                  //   left: 0.0,
-                  //   right: 0.0,
-                  //   child: Container(
-                  //     decoration: const BoxDecoration(
-                  //       gradient: LinearGradient(
-                  //         colors: [
-                  //           Color.fromARGB(200, 0, 0, 0),
-                  //           Color.fromARGB(0, 0, 0, 0),
-                  //         ],
-                  //         begin: Alignment.bottomCenter,
-                  //         end: Alignment.topCenter,
-                  //       ),
-                  //     ),
-                  //     padding: const EdgeInsets.symmetric(
-                  //         vertical: 10.0, horizontal: 20.0),
-                  //     child: Text(
-                  //       'No Title',
-                  //       style: const TextStyle(
-                  //         color: Colors.white,
-                  //         fontSize: 20.0,
-                  //         fontWeight: FontWeight.bold,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+                  Image.network(
+                      image.bannerImage != null
+                          ? proxyUrl + image.bannerImage.toString()
+                          : "https://via.placeholder.com/728x500.png?text=No+Image",
+                      fit: BoxFit.fitHeight,
+                      width: double.maxFinite,
+                      height: double.maxFinite),
+                  Positioned(
+                    bottom: 0.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(200, 0, 0, 0),
+                            Color.fromARGB(0, 0, 0, 0),
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 20.0),
+                      child: Text(
+                        image.title!.userPreferred.toString().length > 35
+                            ? image.title!.userPreferred
+                                    .toString()
+                                    .substring(0, 20) +
+                                '...'
+                            : image.title!.userPreferred.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
