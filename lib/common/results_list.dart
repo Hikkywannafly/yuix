@@ -4,6 +4,7 @@ import 'package:yuix/data/providers/anilist/queries.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:yuix/data/providers/anilist/anilist_providers.dart';
 
 class AnimeList extends StatelessWidget {
   AnimeList(
@@ -46,7 +47,8 @@ class AnimeList extends StatelessWidget {
           ),
           Query(
             options: QueryOptions(
-                document: gql(query), variables: returnQuery(1, variables)),
+                document: gql(query),
+                variables: returnQuery(1, variables, AnilistType.manga)),
             builder: (QueryResult<Object?> result,
                 {Future<QueryResult<Object?>> Function(FetchMoreOptions)?
                     fetchMore,

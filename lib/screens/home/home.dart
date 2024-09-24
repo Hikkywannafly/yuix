@@ -37,17 +37,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('YuiX'),
-          actions: [
-            IconButton(
-              icon: Icon(
-                themeProvider.isDarkMode ? Iconsax.moon : Icons.sunny,
-              ),
-              onPressed: themeProvider.toggleTheme,
-            )
-          ],
-        ),
+        extendBodyBehindAppBar: true,
+        // appBar: AppBar(
+        //   title: const Text('YuiX'),
+        //   backgroundColor: Colors.transparent, // Đặt nền AppBar trong suốt
+        //   elevation: 0, // Bỏ hiệu ứng bóng của AppBar
+        //   actions: [
+        //     IconButton(
+        //       icon: Icon(
+        //         themeProvider.isDarkMode ? Iconsax.moon : Icons.sunny,
+        //       ),
+        //       onPressed: themeProvider.toggleTheme,
+        //     )
+        //   ],
+        // ),
         body: _buildContent());
   }
 }

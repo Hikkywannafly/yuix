@@ -1,3 +1,5 @@
+import 'package:yuix/data/providers/anilist/anilist_providers.dart';
+
 const bdquery = '''
 query(\$isBirthday:Boolean){
   Page {
@@ -143,6 +145,9 @@ query(
   }
 }
 ''';
+String _typeToQuery(AnilistType type) {
+  return (type == AnilistType.anime) ? 'ANIME' : 'MANGA';
+}
 
 Map<String, dynamic> trendinganimeQueryVariables = {
   "page": 1,
@@ -150,31 +155,40 @@ Map<String, dynamic> trendinganimeQueryVariables = {
   "sort": ["TRENDING_DESC", "POPULARITY_DESC"]
 };
 
-Map<String, dynamic> returnQuery(int page, String type) {
+Map<String, dynamic> returnQuery(
+    int page, String type, AnilistType? anilistType) {
   if (type == 'popular') {
     return {
       "page": page,
-      "type": "ANIME",
+      "type": _typeToQuery(anilistType!),
       "seasonYear": 2022,
       "season": "SPRING"
     };
   } else if (type == 'trending') {
     return {
       "page": page,
-      "type": "ANIME",
+      "type": _typeToQuery(anilistType!),
       "sort": ["TRENDING_DESC", "POPULARITY_DESC"]
     };
   } else if (type == 'upcoming') {
     return {
       "page": page,
-      "type": "ANIME",
+      "type": _typeToQuery(anilistType!),
       "seasonYear": 2022,
       "season": "SUMMER"
     };
   } else if (type == 'alltime') {
-    return {"page": page, "type": "ANIME", "sort": "POPULARITY_DESC"};
+    return {
+      "page": page,
+      "type": _typeToQuery(anilistType!),
+      "sort": "POPULARITY_DESC"
+    };
   } else if (type == 'top100') {
-    return {"page": page, "type": "ANIME", "sort": "SCORE_DESC"};
+    return {
+      "page": page,
+      "type": _typeToQuery(anilistType!),
+      "sort": "SCORE_DESC"
+    };
   } else {
     return {};
   }

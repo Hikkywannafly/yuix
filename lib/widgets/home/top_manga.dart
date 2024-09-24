@@ -3,6 +3,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:yuix/data/providers/anilist/queries.dart';
 import 'package:yuix/models/media.dart';
+import 'package:yuix/data/providers/anilist/anilist_providers.dart';
 
 class TopManga extends StatefulWidget {
   const TopManga({
@@ -21,7 +22,7 @@ class _TopMangaState extends State<TopManga> {
     return Query(
       options: QueryOptions(
           document: gql(allTimePopularQuery),
-          variables: returnQuery(1, 'trending')),
+          variables: returnQuery(1, 'trending', AnilistType.manga)),
       builder: (QueryResult<Object?> result,
           {Future<QueryResult<Object?>> Function(FetchMoreOptions)? fetchMore,
           Future<QueryResult<Object?>?> Function()? refetch}) {
@@ -32,6 +33,7 @@ class _TopMangaState extends State<TopManga> {
         // Media? MediaData = Media.fromJson(result.data!);
 
         final List<dynamic> mediaList = result.data?['Page']['media'] ?? [];
+        print(mediaList[1]);
         final List<Media> mediaObjects =
             mediaList.map((json) => Media.fromJson(json)).toList();
         final List<Widget> imageSliders = mediaObjects.map<Widget>((image) {
@@ -85,19 +87,37 @@ class _TopMangaState extends State<TopManga> {
             ),
           );
         }).toList();
-
-        return CarouselSlider(
-          options: CarouselOptions(
-            viewportFraction: 0.9,
-            autoPlayAnimationDuration: const Duration(milliseconds: 800),
-            autoPlayCurve: Curves.fastOutSlowIn,
-            autoPlay: true,
-            aspectRatio: 2.0,
-            enlargeCenterPage: true,
-            enlargeStrategy: CenterPageEnlargeStrategy.height,
-          ),
-          items: imageSliders,
-        );
+        return Container(
+            // color: Colors.red,
+            child: Column(
+          children: [
+            AppBar(
+              title: const Text('YuiX'),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              // actions: [
+              //   IconButton(
+              //     icon: Icon(
+              //       themeProvider.isDarkMode ? Iconsax.moon : Icons.sunny,
+              //     ),
+              //     onPressed: themeProvider.toggleTheme,
+              //   )
+              // ],
+            ),
+            CarouselSlider(
+              options: CarouselOptions(
+                viewportFraction: 0.9,
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                autoPlay: true,
+                aspectRatio: 2.0,
+                enlargeCenterPage: true,
+                enlargeStrategy: CenterPageEnlargeStrategy.height,
+              ),
+              items: imageSliders,
+            ),
+          ],
+        ));
       },
     );
   }
