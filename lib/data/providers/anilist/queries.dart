@@ -674,6 +674,7 @@ query(
         extraLarge
         large
         color
+        
       }
       startDate {
         year

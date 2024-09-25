@@ -37,11 +37,7 @@ class AnimeList extends StatelessWidget {
                     .make(),
                 InkWell(
                     onTap: () {},
-                    child: 'View all'
-                        .text
-                        .color(Colors.black87)
-                        .minFontSize(13)
-                        .makeCentered())
+                    child: 'View all'.text.minFontSize(13).makeCentered())
               ],
             ),
           ),

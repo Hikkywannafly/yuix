@@ -38,19 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
         extendBodyBehindAppBar: true,
-        // appBar: AppBar(
-        //   title: const Text('YuiX'),
-        //   backgroundColor: Colors.transparent, // Đặt nền AppBar trong suốt
-        //   elevation: 0, // Bỏ hiệu ứng bóng của AppBar
-        //   actions: [
-        //     IconButton(
-        //       icon: Icon(
-        //         themeProvider.isDarkMode ? Iconsax.moon : Icons.sunny,
-        //       ),
-        //       onPressed: themeProvider.toggleTheme,
-        //     )
-        //   ],
-        // ),
+        appBar: AppBar(
+          title: const Text('YuiX'),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            IconButton(
+              icon: Icon(
+                themeProvider.isDarkMode ? Iconsax.moon : Icons.sunny,
+              ),
+              onPressed: themeProvider.toggleTheme,
+            )
+          ],
+        ),
         body: _buildContent());
   }
 }
