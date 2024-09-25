@@ -149,9 +149,10 @@ String _typeToQuery(AnilistType type) {
   return (type == AnilistType.anime) ? 'ANIME' : 'MANGA';
 }
 
-Map<String, dynamic> trendinganimeQueryVariables = {
+Map<String, dynamic> trendingMeidaQueryVariables = {
   "page": 1,
-  "type": "ANIME",
+  "type": "MANGA",
+  "countryOfOrigin": "JP",
   "sort": ["TRENDING_DESC", "POPULARITY_DESC"]
 };
 
@@ -161,7 +162,6 @@ Map<String, dynamic> returnQuery(
     return {
       "page": page,
       "type": _typeToQuery(anilistType!),
-      "seasonYear": 2022,
       "season": "SPRING"
     };
   } else if (type == 'trending') {
@@ -174,7 +174,6 @@ Map<String, dynamic> returnQuery(
     return {
       "page": page,
       "type": _typeToQuery(anilistType!),
-      "seasonYear": 2022,
       "season": "SUMMER"
     };
   } else if (type == 'alltime') {

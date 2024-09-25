@@ -1,9 +1,9 @@
-class TrendingAnime {
+class MediaList {
   Page? page;
 
-  TrendingAnime({this.page});
+  MediaList({this.page});
 
-  TrendingAnime.fromJson(Map<String, dynamic> json) {
+  MediaList.fromJson(Map<String, dynamic> json) {
     page = json['Page'] != null ? Page.fromJson(json['Page']) : null;
   }
 

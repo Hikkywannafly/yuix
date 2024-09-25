@@ -14,10 +14,6 @@ enum AnilistMediaListStatus {
   repeating,
 }
 
-   String _typeToQuery(AnilistType type) {
-    return (type == AnilistType.anime) ? 'ANIME' : 'MANGA';
-  }
-
 class AniListProvider {
   static const headers = <String, String>{
     'Content-Type': 'application/json',

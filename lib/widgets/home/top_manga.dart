@@ -3,7 +3,6 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:yuix/data/providers/anilist/queries.dart';
 import 'package:yuix/models/media.dart';
-import 'package:yuix/data/providers/anilist/anilist_providers.dart';
 
 class TopManga extends StatelessWidget {
   const TopManga({
@@ -17,7 +16,7 @@ class TopManga extends StatelessWidget {
     return Query(
         options: QueryOptions(
             document: gql(allTimePopularQuery),
-            variables: returnQuery(1, 'trending', AnilistType.manga)),
+            variables: trendingMeidaQueryVariables),
         builder: (QueryResult<Object?> result,
             {Future<QueryResult<Object?>> Function(FetchMoreOptions)? fetchMore,
             Future<QueryResult<Object?>?> Function()? refetch}) {
@@ -62,20 +61,9 @@ class TopManga extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Text(
-                              //   data.chapters.toString() + ' Chapters',
-                              //   style: const TextStyle(
-                              //     color: Colors.white,
-                              //     fontSize: 14.0,
-                              //     fontWeight: FontWeight.w700,
-                              //   ),
-                              // ),
                               Text(
                                 data.title!.userPreferred.toString().length > 35
-                                    ? data.title!.userPreferred
-                                            .toString()
-                                            .substring(0, 20) +
-                                        '...'
+                                    ? '${data.title!.userPreferred.toString().substring(0, 20)}...'
                                     : data.title!.userPreferred.toString(),
                                 style: const TextStyle(
                                   color: Colors.white,

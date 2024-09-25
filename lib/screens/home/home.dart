@@ -16,21 +16,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Widget _buildContent() {
-    return Container(
-      child: ListView(children: [
-        TopManga(),
-        AnimeList(
-          mainTitle: 'Trending Anime',
-          query: upcommingNextSeasonquery,
-          variables: 'ANIME',
-        ),
-        AnimeList(
-          mainTitle: 'Trending Anime',
-          query: upcommingNextSeasonquery,
-          variables: 'ANIME',
-        ),
-      ]),
-    );
+    return ListView(children: [
+      const TopManga(),
+      AnimeList(
+        mainTitle: 'Trending Anime',
+        query: upcommingNextSeasonquery,
+        variables: 'ANIME',
+      ),
+      AnimeList(
+        mainTitle: 'Trending Anime',
+        query: upcommingNextSeasonquery,
+        variables: 'ANIME',
+      ),
+    ]);
   }
 
   @override

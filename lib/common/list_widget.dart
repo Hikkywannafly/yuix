@@ -2,89 +2,37 @@
 import 'package:yuix/models/media.dart';
 // import 'package:anilist_gql/pages/detailspage.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 // ignore: must_be_immutable
 class ListWidget extends StatelessWidget {
-  ListWidget({Key? key, required this.media, required this.itsColor})
-      : super(key: key);
-  Media? media;
-  Color itsColor;
+  ListWidget({super.key, required this.media});
+  Media media;
+  @override
+  // Widget build(BuildContext context) {
+  //   return Text("sd");
+  // }
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return const InkWell(
       // onTap: (() => Get.to(() => const AnimeDetailsPage(), arguments: media)),
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 8,
-        ),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black.withOpacity(0.1), width: 0.5),
-          boxShadow: [
-            BoxShadow(
-                color:
-                    const Color.fromARGB(255, 161, 191, 235).withOpacity(0.2),
-                spreadRadius: 0.1,
-                blurRadius: 1),
-          ],
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Container(
-          child: Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.network(
-                media!.coverImage!.large.toString(),
-                loadingBuilder: ((context, child, loadingProgress) {
-                  if (loadingProgress == null) {
-                    return Image.network(media!.coverImage!.large.toString());
-                  }
-                  return Container(
-                    color: itsColor,
-                  );
-                }),
-              ),
-            ),
-
-            //     child: Container(
-            //       decoration: BoxDecoration(
-            //         boxShadow:  [
-            //   BoxShadow(
-            //     color:const Color(0xFFE2E8F1).withOpacity(1),
-            //     spreadRadius: 2,
-            //     blurRadius: 3
-            //   ),
-            // ],
-            //         borderRadius: BorderRadius.circular(10),
-            //         image: DecorationImage(
-            //           image: NetworkImage(media!.coverImage!.large.toString(),
-
-            //           ),
-            //           fit: BoxFit.cover,
-            //         ),
-            //       ),
-            //     ),
-          ),
-          // SizedBox(
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(
-          //       top: 5.0,
-          //       left: 3,
-          //       right: 3,
-          //     ),
-          //     child: media!.title!.userPreferred!.text
-          //         .fontWeight(FontWeight.w600)
-          //         .color(Colors.black87)
-          //         .align(TextAlign.center)
-          //         .fontWeight(FontWeight.w500)
-          //         .minFontSize(12)
-          //         .maxFontSize(13)
-          //         .makeCentered(),
-          //   ),
-          // ),
-        ),
+      child: Column(
+        // margin: const EdgeInsets.symmetric(
+        //   vertical: 10,
+        //   horizontal: 8,
+        // ),
+        // decoration: BoxDecoration(
+        //   border: Border.all(color: Colors.black.withOpacity(0.1), width: 0.5),
+        //   boxShadow: [
+        //     BoxShadow(
+        //         color:
+        //             const Color.fromARGB(255, 161, 191, 235).withOpacity(0.2),
+        //         spreadRadius: 0.1,
+        //         blurRadius: 1),
+        //   ],
+        //   borderRadius: BorderRadius.circular(10),
+        // ),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [],
       ),
     );
   }

@@ -27,7 +27,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key, required this.myclient}) : super(key: key);
+  const MyApp({super.key, required this.myclient});
 
   final ValueNotifier<GraphQLClient> myclient; // Marked as final
 
