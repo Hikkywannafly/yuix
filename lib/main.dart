@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return GraphQLProvider(
-      client: widget.myclient, // Access myclient through widget
+      client: widget.myclient,
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: router,

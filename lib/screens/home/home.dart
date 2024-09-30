@@ -18,15 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildContent() {
     return ListView(children: [
       const TopManga(),
-      AnimeList(
-        mainTitle: 'Trending Anime',
-        query: upcommingNextSeasonquery,
-        variables: 'ANIME',
+      MeidaList(
+        mainTitle: 'Next Season',
+        query: top100AnimeQuery,
+        variables: '',
       ),
-      AnimeList(
-        mainTitle: 'Trending Anime',
+      MeidaList(
+        mainTitle: 'Last Update',
         query: upcommingNextSeasonquery,
-        variables: 'ANIME',
+        variables: 'trending',
       ),
     ]);
   }

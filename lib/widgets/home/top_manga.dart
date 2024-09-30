@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:yuix/data/providers/anilist/queries.dart';
 import 'package:yuix/models/media.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 class TopManga extends StatelessWidget {
   const TopManga({
@@ -34,13 +36,36 @@ class TopManga extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                 child: Stack(
                   children: <Widget>[
-                    Image.network(
-                        data.bannerImage != null
-                            ? proxyUrl + data.bannerImage.toString()
-                            : data.coverImage!.extraLarge.toString(),
-                        fit: BoxFit.fitHeight,
-                        width: double.maxFinite,
-                        height: double.maxFinite),
+                    CachedNetworkImage(
+                      imageUrl: data.bannerImage != null
+                          ? proxyUrl + data.bannerImage.toString()
+                          : data.coverImage!.extraLarge.toString(),
+                      fit: BoxFit.fitHeight,
+                      width: double.maxFinite,
+                      height: double.maxFinite,
+                      placeholder: (context, url) => Shimmer.fromColors(
+                        baseColor: Colors.grey[700]!,
+                        highlightColor: Colors.grey[200]!,
+                        child: Container(
+                          color: Colors.grey[400],
+                          height: 250,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color.fromARGB(0, 209, 203, 203),
+                              Color.fromARGB(255, 77, 76, 76)
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                     Positioned(
                       bottom: 0.0,
                       left: 0.0,

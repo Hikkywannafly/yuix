@@ -14,11 +14,13 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   iconsax: ^0.0.8
   provider: ^6.1.2
-  carousel_slider_plus: ^7.0.1
   dio: ^5.7.0
   graphql_flutter: ^5.1.2
   get: ^4.6.6
   velocity_x: ^4.2.1
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:

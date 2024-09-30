@@ -1,15 +1,14 @@
 import 'package:yuix/common/list_widget.dart';
 import 'package:yuix/models/media.dart';
 import 'package:yuix/data/providers/anilist/queries.dart';
-// import 'package:yuix/common/list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:yuix/data/providers/anilist/anilist_providers.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
-class AnimeList extends StatelessWidget {
-  
-  const AnimeList({
+class MeidaList extends StatelessWidget {
+  const MeidaList({
     super.key,
     required this.mainTitle,
     required this.query,
@@ -25,11 +24,7 @@ class AnimeList extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.only(
-            left: 20,
-            right: 20,
-            top: 5,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -44,35 +39,46 @@ class AnimeList extends StatelessWidget {
             ],
           ),
         ),
-        Query(
-            options: QueryOptions(
-                document: gql(query),
-                variables: returnQuery(1, variables, AnilistType.manga)),
-            builder: (QueryResult<Object?> result,
-                {Future<QueryResult<Object?>> Function(FetchMoreOptions)?
-                    fetchMore,
-                Future<QueryResult<Object?>?> Function()? refetch}) {
-              if (result.hasException) {
-                return const Center(child: Text('No Data Found'));
-              }
-              MediaList? mediaData = MediaList.fromJson(result.data!);
+        LayoutBuilder(
+          builder: (context, constraints) {
+            // double itemWidth = constraints.maxWidth / 2.5;
+            return SizedBox(
+              height: 260, // Adjust height proportionally
+              width: double.infinity,
+              child: Query(
+                  options: QueryOptions(
+                      document: gql(query),
+                      variables: returnQuery(1, variables, AnilistType.manga)),
+                  builder: (QueryResult<Object?> result,
+                      {Future<QueryResult<Object?>> Function(FetchMoreOptions)?
+                          fetchMore,
+                      Future<QueryResult<Object?>?> Function()? refetch}) {
+                    if (result.hasException) {
+                      return const Center(child: Text('No Data Found'));
+                    }
+                    MediaList? mediaData = MediaList.fromJson(result.data!);
 
-              return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: ListView.builder(
-                  // shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                  itemCount: mediaData.page?.pageInfo?.perPage,
-                  itemBuilder: (context, index) {
-                    final media = mediaData.page!.media![index];
-                    return ListWidget(
-                      media: media,
+                    return CarouselSlider.builder(
+                      itemCount: mediaData.page!.pageInfo!.perPage!,
+                      options: CarouselOptions(
+                        aspectRatio: 1.7,
+                        viewportFraction: 0.31,
+                        initialPage: 0,
+                        enableInfiniteScroll: true,
+                        autoPlayInterval: const Duration(seconds: 3),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        enlargeCenterPage: false,
+                        scrollDirection: Axis.horizontal,
+                      ),
+                      itemBuilder: (context, itemIndex, realIndex) {
+                        return ListWidget(
+                            media: mediaData.page!.media![itemIndex]);
+                      },
                     );
-                  },
-                ),
-              );
-            }),
+                  }),
+            );
+          },
+        ),
       ],
     );
   }

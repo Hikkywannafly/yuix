@@ -152,6 +152,7 @@ String _typeToQuery(AnilistType type) {
 Map<String, dynamic> trendingMeidaQueryVariables = {
   "page": 1,
   "type": "MANGA",
+  "isAdult": true,
   "countryOfOrigin": "JP",
   "sort": ["TRENDING_DESC", "POPULARITY_DESC"]
 };
