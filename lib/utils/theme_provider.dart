@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yuix/themes/theme.dart';
+import 'package:yuix/utils/theme.dart';
 
 class ThemeProvider extends ChangeNotifier {
   bool _isDarkMode = false;

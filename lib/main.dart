@@ -1,7 +1,7 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:yuix/routers/router.dart';
-import 'package:yuix/themes/theme_provider.dart';
+import 'package:yuix/utils/theme_provider.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 Future<void> main() async {

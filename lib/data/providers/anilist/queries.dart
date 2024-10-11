@@ -152,8 +152,15 @@ String _typeToQuery(AnilistType type) {
 Map<String, dynamic> trendingMeidaQueryVariables = {
   "page": 1,
   "type": "MANGA",
-  "isAdult": true,
+  "isAdult": false,
   "countryOfOrigin": "JP",
+  "sort": ["TRENDING_DESC", "POPULARITY_DESC"]
+};
+
+Map<String, dynamic> popularManhwaQueryVariables = {
+  "page": 1,
+  "type": "MANGA",
+  "countryOfOrigin": "KR",
   "sort": ["TRENDING_DESC", "POPULARITY_DESC"]
 };
 
@@ -194,7 +201,7 @@ Map<String, dynamic> returnQuery(
   }
 }
 
-String popularAnimeQuery = '''
+String popularMediaQuery = '''
 query(
   \$page: Int = 1
   \$id: Int
@@ -592,7 +599,7 @@ query(
 }
 ''';
 
-String top100AnimeQuery = '''
+String top100MediaQuery = '''
 query(
   \$page: Int = 1
   \$id: Int
