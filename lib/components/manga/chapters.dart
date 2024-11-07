@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:yuix/screens/Manga/read_page.dart';
+import 'package:yuix/screens/manga/read_page.dart';
 import 'package:flutter/material.dart';
 import 'package:text_scroll/text_scroll.dart';
 

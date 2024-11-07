@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:yuix/components/common/IconWithLabel.dart';
-import 'package:yuix/screens/Novel/details_page.dart';
+import 'package:yuix/screens/novel/details_page.dart';
 import 'package:yuix/utils/sources/novel/wuxia_click.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';

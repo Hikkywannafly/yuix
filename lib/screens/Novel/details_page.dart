@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, non_constant_identifier_names, must_be_immutable, avoid_print, use_build_context_synchronously
 import 'dart:developer';
 import 'package:yuix/components/common/IconWithLabel.dart';
-import 'package:yuix/screens/Novel/reading_page.dart';
+import 'package:yuix/screens/novel/reading_page.dart';
 import 'package:yuix/utils/sources/novel/wuxia_click.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';

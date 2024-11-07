@@ -2,7 +2,7 @@
 
 import 'dart:math';
 
-import 'package:yuix/screens/Novel/details_page.dart';
+import 'package:yuix/screens/novel/details_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';

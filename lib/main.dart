@@ -1,27 +1,29 @@
 import 'dart:developer';
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/hiveData/appData/database.dart';
-import 'package:yuix/screens/Novel/home_page.dart';
+import 'package:yuix/screens/novel/home_page.dart';
 import 'package:yuix/screens/user/profile.dart';
 import 'package:yuix/hiveData/themeData/theme_provider.dart';
-import 'package:yuix/screens/Anime/home_page.dart';
-import 'package:yuix/screens/Manga/home_page.dart';
+import 'package:yuix/screens/anime/home_page.dart';
+import 'package:yuix/screens/manga/home_page.dart';
 import 'package:yuix/screens/home_page.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
-import 'package:yuix/screens/Anime/details_page.dart';
-import 'package:yuix/screens/Anime/search_page.dart';
-import 'package:yuix/screens/Manga/details_page.dart';
-import 'package:yuix/screens/Manga/read_page.dart';
-import 'package:yuix/screens/Manga/search_page.dart';
+import 'package:hugeicons/hugeicons.dart';
+import 'package:yuix/screens/anime/details_page.dart';
+import 'package:yuix/screens/anime/search_page.dart';
+import 'package:yuix/screens/manga/details_page.dart';
+import 'package:yuix/screens/manga/read_page.dart';
+import 'package:yuix/screens/manga/search_page.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:iconly/iconly.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:yuix/routers/app_router.dart';
+import 'package:yuix/routers/route.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -92,6 +94,12 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
+    // return MaterialApp.router(
+    //   debugShowCheckedModeBanner: false,
+    //   theme: themeProvider.selectedTheme,
+    //   routerConfig: RouterApp.router,
+    // );
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeProvider.selectedTheme,
@@ -101,8 +109,9 @@ class _MainAppState extends State<MainApp> {
         body: routes[_selectedIndex],
         bottomNavigationBar: CrystalNavigationBar(
           currentIndex: _selectedIndex,
-          paddingR: const EdgeInsets.all(0),
-          marginR: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+          paddingR: const EdgeInsets.all(10),
+          marginR: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          enablePaddingAnimation: true,
           unselectedItemColor: Colors.white,
           backgroundColor: Colors.black.withOpacity(0.3),
           onTap: _onItemTapped,

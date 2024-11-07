@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:algorithmic/algorithmic.dart';
 import 'package:yuix/utils/sources/anime/aniwatch/scraper_search.dart';
-import 'package:yuix/screens/Anime/details_page.dart';
+import 'package:yuix/screens/anime/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

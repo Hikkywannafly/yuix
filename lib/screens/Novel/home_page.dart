@@ -7,7 +7,7 @@ import 'package:yuix/components/novel/reusable_carousel.dart';
 import 'package:yuix/fallbackData/novel_homepage.dart';
 import 'package:yuix/hiveData/themeData/theme_provider.dart';
 import 'package:yuix/screens/Anime/home_page.dart' hide Header;
-import 'package:yuix/screens/Novel/search_page.dart';
+import 'package:yuix/screens/novel/search_page.dart';
 import 'package:yuix/utils/sources/novel/novel_buddy.dart';
 import 'package:yuix/utils/sources/novel/wuxia_click.dart';
 import 'package:flutter/material.dart';

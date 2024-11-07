@@ -3,7 +3,7 @@
 import 'dart:math';
 
 import 'package:yuix/components/helper/scroll_helper.dart';
-import 'package:yuix/screens/Novel/details_page.dart';
+import 'package:yuix/screens/novel/details_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';

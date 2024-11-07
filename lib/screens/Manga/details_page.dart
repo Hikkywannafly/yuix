@@ -8,7 +8,7 @@ import 'package:yuix/components/common/reusable_carousel.dart';
 import 'package:yuix/components/anime/details/character_cards.dart';
 import 'package:yuix/components/manga/chapter_ranges.dart';
 import 'package:yuix/components/manga/chapters.dart';
-import 'package:yuix/screens/Manga/read_page.dart';
+import 'package:yuix/screens/manga/read_page.dart';
 import 'package:yuix/utils/apiHooks/anilist/anime/details_page.dart';
 import 'package:yuix/utils/sources/manga/handlers/manga_sources_handler.dart';
 import 'package:cached_network_image/cached_network_image.dart';

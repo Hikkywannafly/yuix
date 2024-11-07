@@ -1,8 +1,8 @@
 // ignore_for_file: camel_case_types, use_build_context_synchronously, must_be_immutable
 import 'dart:math';
 import 'package:yuix/components/helper/scroll_helper.dart';
-import 'package:yuix/screens/Anime/details_page.dart';
-import 'package:yuix/screens/Manga/details_page.dart';
+import 'package:yuix/screens/anime/details_page.dart';
+import 'package:yuix/screens/manga/details_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
