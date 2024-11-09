@@ -38,15 +38,6 @@ class SettingsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 60),
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              IconlyBroken.arrow_left_2,
-              size: 30,
-            ),
-          ),
           const SizedBox(height: 30),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
@@ -56,15 +47,6 @@ class SettingsPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          // CustomTile(
-          //   icon: Icons.source,
-          //   title: 'Sources',
-          //   description: 'Switch Sources for Animes and Manga',
-          //   onTap: () {
-          //     Navigator.push(
-          //         context, _createSlideRoute(const SourcesSettingPage()));
-          //   },
-          // ),
           CustomTile(
             icon: Icons.stairs_rounded,
             title: 'Layout',

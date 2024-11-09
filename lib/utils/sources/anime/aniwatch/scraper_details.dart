@@ -5,7 +5,7 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 import 'dart:convert';
 
-const String BASE_URL = 'https://hianime.to';
+const String BASE_URL = 'https://hianime.lv';
 
 Future<Map<String, dynamic>> scrapeAnimeAboutInfo(String animeId) async {
   final result = <String, dynamic>{

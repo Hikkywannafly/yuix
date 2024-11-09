@@ -9,6 +9,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transformable_list_view/transformable_list_view.dart';
+import 'package:go_router/go_router.dart';
 
 class ReusableCarousel extends StatelessWidget {
   dynamic carouselData;
@@ -144,26 +145,18 @@ class ReusableCarousel extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 10.0),
                 child: GestureDetector(
                   onTap: () {
+                    final argument = {
+                      'id': itemData['id'],
+                      'posterUrl': posterUrl,
+                      'tag': tagg,
+                    };
                     if (isManga) {
-                      Navigator.pushNamed(
-                        context,
-                        '/manga/details',
-                        arguments: {
-                          'id': itemData['id'],
-                          'posterUrl': posterUrl,
-                          'tag': tagg
-                        },
-                      );
+                      Navigator.pushNamed(context, '/manga/details',
+                          arguments: argument);
+                      print('id: ${itemData['id']}');
                     } else {
-                      Navigator.pushNamed(
-                        context,
-                        '/details',
-                        arguments: {
-                          'id': itemData['id'],
-                          'posterUrl': posterUrl,
-                          'tag': tagg
-                        },
-                      );
+                      Navigator.pushNamed(context, '/details',
+                          arguments: argument);
                     }
                   },
                   child: Column(

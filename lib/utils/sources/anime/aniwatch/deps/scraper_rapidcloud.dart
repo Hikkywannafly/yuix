@@ -98,7 +98,7 @@ class RapidCloud {
 
       return result;
     } catch (err) {
-      print(err.toString());
+      // print(err.toString());
       throw Exception('Error during extraction');
     }
   }

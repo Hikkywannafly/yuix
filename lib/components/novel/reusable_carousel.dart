@@ -86,7 +86,7 @@ class ReusableCarousel extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                title ?? '??',
+                title,
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: 'Poppins',

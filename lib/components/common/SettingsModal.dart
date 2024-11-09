@@ -1,4 +1,3 @@
-
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/main.dart';
 import 'package:yuix/screens/user/profile.dart';
@@ -24,7 +23,8 @@ class SettingsModal extends StatelessWidget {
     // final hasAvatarImage = avatarImagePath != 'null';
 
     final userName = anilistProvider.userData?['user']?['name'] ?? 'Guest';
-    final avatarImagePath = anilistProvider.userData?['user']?['avatar']?['large'];
+    final avatarImagePath =
+        anilistProvider.userData?['user']?['avatar']?['large'];
     final isLoggedIn = anilistProvider.userData?['user']?['name'] != null;
     return Container(
       padding: const EdgeInsets.all(16.0),
@@ -106,16 +106,16 @@ class SettingsModal extends StatelessWidget {
               );
             },
           ),
-          ListTile(
-            leading: const Icon(Iconsax.setting),
-            title: const Text('Settings'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsPage()),
-              );
-            },
-          ),
+          // ListTile(
+          //   leading: const Icon(Iconsax.setting),
+          //   title: const Text('Settings'),
+          //   onTap: () {
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => const SettingsPage()),
+          //     );
+          //   },
+          // ),
           if (isLoggedIn)
             ListTile(
               leading: const Icon(Iconsax.logout),

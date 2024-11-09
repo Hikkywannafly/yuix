@@ -57,11 +57,11 @@ class _HomePageState extends State<HomePage> {
         final avatarImagePath =
             anilistProvider.userData?['user']?['avatar']?['large'];
         final isLoggedIn = anilistProvider.userData?['user']?['name'] != null;
-        final animeList = isLoggedIn &&
-                anilistProvider.userData != null &&
-                anilistProvider.userData.containsKey('currentlyWatching')
-            ? (anilistProvider.userData['currentlyWatching'] ?? [])
-            : [];
+        // final animeList = isLoggedIn &&
+        //         anilistProvider.userData != null &&
+        //         anilistProvider.userData.containsKey('currentlyWatching')
+        //     ? (anilistProvider.userData['currentlyWatching'] ?? [])
+        //     : [];
         return ValueListenableBuilder(
           valueListenable: Hive.box('app-data').listenable(),
           builder: (context, Box appBox, _) {
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
-                                width: 50,
+                                width: 70,
                                 height: 70,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(30),
@@ -96,9 +96,6 @@ class _HomePageState extends State<HomePage> {
                                     'assets/images/logo_transparent.png',
                                     fit: BoxFit.cover,
                                     alignment: Alignment.center,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inverseSurface,
                                   ),
                                 ),
                               ),
@@ -141,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           const SizedBox(height: 60),
                           Text(
-                            'Hey ${isLoggedIn ? userName : 'Guest'}, What are we doing today?',
+                            'Hey ${isLoggedIn ? userName : 'Guest'}',
                             style: const TextStyle(
                                 fontSize: 30, fontFamily: 'Poppins-Bold'),
                             textAlign: TextAlign.center,
@@ -150,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
-                              'Find your favorite anime or manga, manhwa or whatever you like!',
+                              '',
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .colorScheme
@@ -166,60 +163,61 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Column(
                     children: [
-                      if (isLoggedIn)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              ImageButton(
-                                width:
-                                    MediaQuery.of(context).size.width / 2 - 40,
-                                buttonText: 'ANIME LIST',
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AnimeList(),
-                                    ),
-                                  );
-                                  Provider.of<AniListProvider>(context,
-                                          listen: false)
-                                      .fetchUserAnimeList();
-                                },
-                                backgroundImage:
-                                    'https://s4.anilist.co/file/anilistcdn/media/anime/banner/110277-iuGn6F5bK1U1.jpg',
-                              ),
-                              ImageButton(
-                                width:
-                                    MediaQuery.of(context).size.width / 2 - 40,
-                                buttonText: 'MANGA LIST',
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AnilistMangaList(),
-                                    ),
-                                  );
-                                  Provider.of<AniListProvider>(context,
-                                          listen: false)
-                                      .fetchUserMangaList();
-                                },
-                                backgroundImage:
-                                    'https://s4.anilist.co/file/anilistcdn/media/manga/banner/30002-3TuoSMl20fUX.jpg',
-                              ),
-                            ],
-                          ),
-                        ),
-                      const SizedBox(height: 20),
-                      if (anilistProvider.userData?['data'] != null)
-                        anilistCarousel(
-                          title: 'Currently Watching',
-                          carouselData: animeList,
-                          tag: 'currently-watching',
-                        )
-                      else
-                        loader(),
+                      // if (isLoggedIn)
+                      //   Padding(
+                      //     padding: const EdgeInsets.only(top: 20.0),
+                      //     child: Row(
+                      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //       children: [
+                      //         ImageButton(
+                      //           width:
+                      //               MediaQuery.of(context).size.width / 2 - 40,
+                      //           buttonText: 'ANIME LIST',
+                      //           onPressed: () {
+                      //             Navigator.push(
+                      //               context,
+                      //               MaterialPageRoute(
+                      //                 builder: (context) => AnimeList(),
+                      //               ),
+                      //             );
+                      //             // context.go('/anime-list')
+                      //             Provider.of<AniListProvider>(context,
+                      //                     listen: false)
+                      //                 .fetchUserAnimeList();
+                      //           },
+                      //           backgroundImage:
+                      //               'https://s4.anilist.co/file/anilistcdn/media/anime/banner/110277-iuGn6F5bK1U1.jpg',
+                      //         ),
+                      //         ImageButton(
+                      //           width:
+                      //               MediaQuery.of(context).size.width / 2 - 40,
+                      //           buttonText: 'MANGA LIST',
+                      //           onPressed: () {
+                      //             Navigator.push(
+                      //               context,
+                      //               MaterialPageRoute(
+                      //                 builder: (context) => AnilistMangaList(),
+                      //               ),
+                      //             );
+                      //             Provider.of<AniListProvider>(context,
+                      //                     listen: false)
+                      //                 .fetchUserMangaList();
+                      //           },
+                      //           backgroundImage:
+                      //               'https://s4.anilist.co/file/anilistcdn/media/manga/banner/30002-3TuoSMl20fUX.jpg',
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // const SizedBox(height: 20),
+                      // if (anilistProvider.userData?['data'] != null)
+                      //   anilistCarousel(
+                      //     title: 'Currently Watching',
+                      //     carouselData: animeList,
+                      //     tag: 'currently-watching',
+                      //   )
+                      // else
+                      // loader(),
                       anilistCarousel(
                         title: 'Currently Reading',
                         carouselData: mangaList,
@@ -314,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: const Center(
                           child: Text(
-                            'Welcome To AnymeX',
+                            'Welcome To YuiX',
                             style: TextStyle(fontFamily: 'Poppins-SemiBold'),
                           ),
                         ),
@@ -451,6 +449,7 @@ class _HomePageState extends State<HomePage> {
                                     onPressed: () {
                                       Hive.box('login-data')
                                           .put('isFirstTime', false);
+
                                       Navigator.of(context).pop();
                                     },
                                     label: Text(

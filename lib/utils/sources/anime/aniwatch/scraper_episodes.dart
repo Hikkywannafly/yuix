@@ -1,6 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages
 
-
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
 import 'dart:convert';
@@ -16,8 +15,8 @@ class HttpError implements Exception {
 }
 
 Future<Map<String, dynamic>> scrapeAnimeEpisodes(String animeId) async {
-  const String srcBaseUrl = 'https://hianime.to';
-  const String srcAjaxUrl = 'https://hianime.to/ajax/v2/episode/list';
+  const String srcBaseUrl = 'https://hianime.lv';
+  const String srcAjaxUrl = 'https://hianime.lv/ajax/v2/episode/list';
   const String acceptHeader =
       'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7';
   const String userAgentHeader =

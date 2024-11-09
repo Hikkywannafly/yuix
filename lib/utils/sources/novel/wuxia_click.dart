@@ -172,7 +172,7 @@ Future<Map<String, dynamic>> scrapeNovelWords(String url) async {
 
     return novelData;
   } else {
-    print('Failed to load page: ${response.statusCode}');
+    // print('Failed to load page: ${response.statusCode}');
     return {};
   }
 }
@@ -238,9 +238,8 @@ Future<dynamic> scrapeNovelSearchData(String query) async {
     Map<String, String> data = {
       'id': '$baseUrl$link',
       'title': title,
-      'image': (imageUrl.isEmpty)
-          ? 'https://placehold.co/200x250.png'
-          : imageUrl,
+      'image':
+          (imageUrl.isEmpty) ? 'https://placehold.co/200x250.png' : imageUrl,
       'rating': (double.parse(rating) * 2).toString(),
       'rank': rank,
       'views': views,

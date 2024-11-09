@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart';
 
-const String SRC_HOME_URL = 'https://hianime.to/home';
+const String SRC_HOME_URL = 'https://hianime.lv/home';
 Future<Map<String, dynamic>> scrapeHomePage() async {
   final Map<String, dynamic> res = {
     'spotlightAnimes': [],

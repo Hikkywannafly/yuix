@@ -22,8 +22,6 @@ import 'package:yuix/screens/manga/search_page.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:iconly/iconly.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:yuix/routers/app_router.dart';
-import 'package:yuix/routers/route.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -93,13 +91,6 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-
-    // return MaterialApp.router(
-    //   debugShowCheckedModeBanner: false,
-    //   theme: themeProvider.selectedTheme,
-    //   routerConfig: RouterApp.router,
-    // );
-    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeProvider.selectedTheme,

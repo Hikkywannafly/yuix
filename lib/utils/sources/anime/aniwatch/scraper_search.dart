@@ -1,4 +1,3 @@
-
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 
@@ -82,7 +81,7 @@ List<Map<String, dynamic>> extractAnimes(Document document, String selector) {
 
 Future<List<Map<String, dynamic>>> scrapeAnimeSearch(String query,
     {int page = 1}) async {
-  const String baseUrl = 'https://hianime.to/';
+  const String baseUrl = 'https://hianime.lv/';
   final String url = '${baseUrl}search?keyword=$query&page=$page&sort=default';
 
   try {

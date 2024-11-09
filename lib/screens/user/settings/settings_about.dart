@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const String telegramUrl = 'https://t.me/AnymeX_Discussion';
-const String githubUrl = 'https://github.com/RyanYuuki/AnymeX';
-
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
@@ -34,13 +31,14 @@ class AboutPage extends StatelessWidget {
                 child: Image.asset('assets/images/logo_transparent.png'),
               ),
               const Text(
-                'AnymeX',
+                'YuiX',
                 style: TextStyle(fontSize: 28),
               ),
               const SizedBox(height: 20),
               Text(
                 'Version: 2.1.0',
-                style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.secondary),
               ),
               const SizedBox(height: 20),
               Container(
@@ -51,7 +49,7 @@ class AboutPage extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(10.0),
                 child: const Text(
-                  'Heyyy Guys! This is AnymeX Developer (Ryan), Thanks you for using this app. it really means a lot! if you want to provide any kind of feedback or you want any feature implemented please join our telegram group and share your idea there!',
+                  'f',
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -60,11 +58,11 @@ class AboutPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    onPressed: () => _launchUrl(telegramUrl),
+                    onPressed: () => (),
                     icon: const Icon(Icons.telegram, size: 50),
                   ),
                   IconButton(
-                    onPressed: () => _launchUrl(githubUrl),
+                    onPressed: () => (),
                     icon: const Icon(Ionicons.logo_github, size: 48),
                   ),
                 ],

@@ -4,12 +4,25 @@ import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:iconly/iconly.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:provider/provider.dart';
-import 'package:yuix/hiveData/themeData/theme_provider.dart';
+// import 'package:provider/provider.dart';
+// import 'package:yuix/hiveData/themeData/theme_provider.dart';
+// import 'package:go_router/go_router.dart';
+import 'package:yuix/screens/anime/details_page.dart';
+import 'package:yuix/screens/anime/search_page.dart';
+import 'package:yuix/screens/manga/details_page.dart';
+import 'package:yuix/screens/manga/read_page.dart';
+import 'package:yuix/screens/manga/search_page.dart';
+
+import 'package:yuix/screens/anime/home_page.dart';
+import 'package:yuix/screens/manga/home_page.dart';
+import 'package:yuix/screens/home_page.dart';
+import 'package:yuix/screens/novel/home_page.dart';
+import 'package:yuix/screens/user/settings.dart';
 
 class MainScreen extends StatefulWidget {
   final Widget child;
-  const MainScreen({Key? key, required this.child}) : super(key: key);
+  // final GoRouterState state;
+  const MainScreen({super.key, required this.child});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -24,37 +37,49 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
+  final routes = [
+    const HomePage(),
+    const AnimeHomePage(),
+    const MangaHomePage(),
+    const NovelHomePage(),
+    const SettingsPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    print(themeProvider.selectedTheme.colorScheme.primary);
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      body: widget.child,
+      body: routes[_selectedIndex],
       bottomNavigationBar: CrystalNavigationBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: [
           CrystalNavigationBarItem(
-            icon: IconlyBold.home,
-            unselectedIcon: IconlyLight.home,
-            selectedColor: themeProvider.selectedTheme.colorScheme.primary,
+            icon: Iconsax.home,
+            unselectedIcon: Iconsax.home,
+            selectedColor: Theme.of(context).colorScheme.primary,
           ),
           CrystalNavigationBarItem(
-            icon: Icons.movie_filter_rounded,
-            unselectedIcon: Icons.movie_filter_outlined,
-            selectedColor: themeProvider.selectedTheme.colorScheme.primary,
+            icon: Iconsax.video_play,
+            unselectedIcon: Iconsax.video_play,
+            selectedColor: Theme.of(context).colorScheme.primary,
           ),
           CrystalNavigationBarItem(
             icon: Iconsax.book,
             unselectedIcon: Iconsax.book,
-            selectedColor: themeProvider.selectedTheme.colorScheme.primary,
+            selectedColor: Theme.of(context).colorScheme.primary,
           ),
           CrystalNavigationBarItem(
             icon: HugeIcons.strokeRoundedBookOpen01,
             unselectedIcon: HugeIcons.strokeRoundedBookOpen01,
-            selectedColor: themeProvider.selectedTheme.colorScheme.primary,
+            selectedColor: Theme.of(context).colorScheme.primary,
+          ),
+          CrystalNavigationBarItem(
+            icon: Iconsax.setting,
+            unselectedIcon: Iconsax.setting,
+            selectedColor: Theme.of(context).colorScheme.primary,
           ),
         ],
       ),
