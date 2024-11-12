@@ -1,6 +1,4 @@
 // ignore_for_file: unused_local_variable, prefer_const_declarations
-
-import 'dart:convert';
 import 'dart:developer';
 import 'package:yuix/utils/sources/anime/base/source_base.dart';
 import 'package:yuix/utils/sources/anime/extensions/aniwatch/aniwatch.dart';

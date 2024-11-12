@@ -1,20 +1,24 @@
 import 'dart:developer';
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/hiveData/appData/database.dart';
-import 'package:yuix/screens/novel/home_page.dart';
+import 'package:yuix/routers/route.dart';
+import 'package:yuix/screens/Novel/home_page.dart';
 import 'package:yuix/hiveData/themeData/theme_provider.dart';
-import 'package:yuix/screens/anime/home_page.dart';
-import 'package:yuix/screens/manga/home_page.dart';
+import 'package:yuix/screens/Anime/home_page.dart';
+import 'package:yuix/screens/Manga/home_page.dart';
 import 'package:yuix/screens/home_page.dart';
+import 'package:yuix/screens/user/settings.dart';
+import 'package:yuix/utils/sources/anime/handler/sources_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
-import 'package:yuix/routers/route.dart';
-import 'package:yuix/routers/main_screen.dart';
-import 'package:yuix/screens/user/settings.dart';
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
+import 'package:iconly/iconly.dart';
+import 'package:iconsax/iconsax.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -32,6 +36,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => AppData()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => SourcesHandler()),
         ChangeNotifierProvider(
             create: (_) => AniListProvider()..tryAutoLogin()),
       ],
@@ -85,6 +90,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final box = Hive.box('app-data');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeProvider.selectedTheme,
@@ -92,9 +98,45 @@ class _MainAppState extends State<MainApp> {
         extendBody: true,
         extendBodyBehindAppBar: true,
         body: routes[_selectedIndex],
-        bottomNavigationBar: AppNavigationBar(
-          selectedIndex: _selectedIndex,
-          onItemTapped: _onItemTapped,
+        bottomNavigationBar: ValueListenableBuilder(
+          valueListenable: box.listenable(),
+          builder: (BuildContext context, Box<dynamic> value, Widget? child) {
+            return CrystalNavigationBar(
+              borderRadius: box.get('tabBarRoundness', defaultValue: 30.0),
+              currentIndex: _selectedIndex,
+              paddingR: const EdgeInsets.all(0),
+              marginR: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              onTap: _onItemTapped,
+              items: [
+                CrystalNavigationBarItem(
+                  icon: Iconsax.home,
+                  unselectedIcon: Iconsax.home,
+                  selectedColor: Theme.of(context).colorScheme.primary,
+                ),
+                CrystalNavigationBarItem(
+                  icon: Iconsax.video_play,
+                  unselectedIcon: Iconsax.video_play,
+                  selectedColor: Theme.of(context).colorScheme.primary,
+                ),
+                CrystalNavigationBarItem(
+                  icon: Iconsax.book,
+                  unselectedIcon: Iconsax.book,
+                  selectedColor: Theme.of(context).colorScheme.primary,
+                ),
+                CrystalNavigationBarItem(
+                  icon: HugeIcons.strokeRoundedBookOpen01,
+                  unselectedIcon: HugeIcons.strokeRoundedBookOpen01,
+                  selectedColor: Theme.of(context).colorScheme.primary,
+                ),
+                CrystalNavigationBarItem(
+                  icon: Iconsax.setting,
+                  unselectedIcon: Iconsax.setting,
+                  selectedColor: Theme.of(context).colorScheme.primary,
+                ),
+              ],
+            );
+          },
         ),
       ),
       onGenerateRoute: AppRouter.generateRoute,

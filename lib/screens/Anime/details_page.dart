@@ -12,7 +12,7 @@ import 'package:yuix/components/anime/details/character_cards.dart';
 import 'package:yuix/hiveData/appData/database.dart';
 import 'package:yuix/utils/apiHooks/anilist/anime/details_page.dart';
 import 'package:yuix/utils/apiHooks/api.dart';
-import 'package:yuix/screens/anime/watch_page.dart';
+import 'package:yuix/screens/Anime/watch_page.dart';
 import 'package:yuix/utils/sources/anime/handler/sources_handler.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';

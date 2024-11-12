@@ -4,7 +4,7 @@ import 'dart:math' show max;
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/components/videoPlayer/custom_controls.dart';
 import 'package:yuix/utils/apiHooks/api.dart';
-// import 'package:yuix/utils/sources/anime/handler/sources_handler.dart';
+import 'package:yuix/utils/sources/anime/handler/sources_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:better_player/better_player.dart';
 import 'package:flutter/services.dart';
@@ -74,8 +74,8 @@ class _WatchPageState extends State<WatchPage> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
-    // moreThanOneLink =
-    //     Provider.of<SourcesHandler>(context, listen: false).getExtensionType();
+    moreThanOneLink =
+        Provider.of<SourcesHandler>(context, listen: false).getExtensionType();
     _initVars();
     initializePlayer();
     if (widget.isDub) {

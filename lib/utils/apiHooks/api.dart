@@ -318,7 +318,7 @@ dynamic conditionDetailPageData(dynamic data, bool isConsumet) {
     jname = data?['title']?['romaji'] ?? data?['jname'] ?? '??';
     poster = data['image'] ?? data['poster'] ?? '??';
     cover = data['cover'] ?? data['image'] ?? '??';
-    premiered = '${data["season"]} ${data["releaseDate"]}' ?? '??';
+    premiered = '${data["season"]} ${data["releaseDate"]}';
     description = data['description'] ?? '??';
     rating = data['rating']?.toString() ?? data?['malscore'].toString() ?? '??';
     genres =

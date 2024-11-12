@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:yuix/screens/anime/details_page.dart';
-import 'package:yuix/screens/anime/search_page.dart';
-import 'package:yuix/screens/manga/details_page.dart';
-import 'package:yuix/screens/manga/read_page.dart';
-import 'package:yuix/screens/manga/search_page.dart';
+import 'package:yuix/screens/Anime/details_page.dart';
+import 'package:yuix/screens/Anime/search_page.dart';
+import 'package:yuix/screens/Manga/details_page.dart';
+import 'package:yuix/screens/Manga/read_page.dart';
+import 'package:yuix/screens/Manga/search_page.dart';
 import 'package:yuix/screens/user/profile.dart';
 
 class AppRouter {
@@ -23,14 +23,14 @@ class AppRouter {
           ),
         );
       case '/anime/search':
-        final id = args?['term'] ?? '';
+        final term = args?['term'] ?? '';
         return MaterialPageRoute(
-          builder: (context) => SearchPage(searchTerm: id),
+          builder: (context) => SearchPage(searchTerm: term),
         );
       case '/manga/search':
-        final id = args?['term'] ?? '';
+        final term = args?['term'] ?? '';
         return MaterialPageRoute(
-          builder: (context) => MangaSearchPage(searchTerm: id),
+          builder: (context) => MangaSearchPage(searchTerm: term),
         );
       case '/manga/details':
         final posterUrl = args?['posterUrl'] ?? '';
@@ -62,7 +62,9 @@ class AppRouter {
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
-            body: Center(child: Text('No route defined for ${settings.name}')),
+            body: Center(
+              child: Text('No route defined for ${settings.name}'),
+            ),
           ),
         );
     }

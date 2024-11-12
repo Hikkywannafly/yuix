@@ -6,7 +6,7 @@ import 'package:crypto/crypto.dart';
 import 'package:pointycastle/export.dart';
 
 class MegaCloud {
-  final String _serverName = 'megacloud';
+  // final String _serverName = 'megacloud';
   final Map<String, String> _megacloud = {
     'script': 'https://megacloud.tv/js/player/a/prod/e1-player.min.js?v=',
     'sources': 'https://megacloud.tv/embed-2/ajax/e-1/getSources?id=',

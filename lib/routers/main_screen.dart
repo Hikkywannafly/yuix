@@ -14,7 +14,7 @@ class AppNavigationBar extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // final themeProvider = Provider.of<ThemeProvider>(context);
+
     return CrystalNavigationBar(
       currentIndex: selectedIndex,
       paddingR: const EdgeInsets.all(10),
