@@ -12,7 +12,6 @@ class AppNavigationBar extends StatelessWidget {
     required this.selectedIndex,
     required this.onItemTapped,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     // final themeProvider = Provider.of<ThemeProvider>(context);

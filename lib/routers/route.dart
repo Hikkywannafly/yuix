@@ -23,14 +23,14 @@ class AppRouter {
           ),
         );
       case '/anime/search':
-        final term = args?['term'] ?? '';
+        final id = args?['term'] ?? '';
         return MaterialPageRoute(
-          builder: (context) => SearchPage(searchTerm: term),
+          builder: (context) => SearchPage(searchTerm: id),
         );
       case '/manga/search':
-        final term = args?['term'] ?? '';
+        final id = args?['term'] ?? '';
         return MaterialPageRoute(
-          builder: (context) => MangaSearchPage(searchTerm: term),
+          builder: (context) => MangaSearchPage(searchTerm: id),
         );
       case '/manga/details':
         final posterUrl = args?['posterUrl'] ?? '';
@@ -45,12 +45,14 @@ class AppRouter {
         final mangaId = args?['mangaId'] ?? '';
         final posterUrl = args?['posterUrl'] ?? '';
         final currentSource = args?['currentSource'] ?? '';
+        final anilistId = args?['anilistId'] ?? '';
         return MaterialPageRoute(
           builder: (context) => ReadingPage(
             id: id,
             mangaId: mangaId,
             posterUrl: posterUrl,
             currentSource: currentSource,
+            anilistId: anilistId,
           ),
         );
       case '/profile':

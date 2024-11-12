@@ -54,6 +54,8 @@ dependencies:
   dio: ^5.7.0
   go_router: ^14.4.1
   flutter_animate: ^4.5.0
+  js_unpack: ^1.0.4
+  permission_handler: ^11.3.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

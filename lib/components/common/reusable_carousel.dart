@@ -10,7 +10,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transformable_list_view/transformable_list_view.dart';
 
-
 class ReusableCarousel extends StatelessWidget {
   dynamic carouselData;
   final String? title;
@@ -45,47 +44,17 @@ class ReusableCarousel extends StatelessWidget {
             box.get('usingCompactCards', defaultValue: false);
         final bool usingSaikouCards =
             box.get('usingSaikouCards', defaultValue: true);
+        final double cardRoundness =
+            box.get('cardRoundness', defaultValue: 18.0);
 
-        return normalCard(
-            customScheme, context, usingCompactCards, usingSaikouCards);
+        return normalCard(customScheme, context, usingCompactCards,
+            usingSaikouCards, cardRoundness);
       },
     );
   }
 
-  Matrix4 getTransformMatrix(TransformableListItem item) {
-    const maxScale = 1;
-    const minScale = 0.9;
-    final viewportWidth = item.constraints.viewportMainAxisExtent;
-    final itemLeftEdge = item.offset.dx;
-    final itemRightEdge = item.offset.dx + item.size.width;
-
-    bool isScrollingRight =
-        _scrollDirectionHelper.isScrollingRight(item.offset);
-
-    double visiblePortion;
-    if (isScrollingRight) {
-      visiblePortion = (viewportWidth - itemLeftEdge) / item.size.width;
-    } else {
-      visiblePortion = (itemRightEdge) / item.size.width;
-    }
-
-    if ((isScrollingRight && itemLeftEdge < viewportWidth) ||
-        (!isScrollingRight && itemRightEdge > 0)) {
-      const scaleRange = maxScale - minScale;
-      final scale =
-          minScale + (scaleRange * visiblePortion).clamp(0.0, scaleRange);
-
-      return Matrix4.identity()
-        ..translate(item.size.width / 2, 0, 0)
-        ..scale(scale)
-        ..translate(-item.size.width / 2, 0, 0);
-    }
-
-    return Matrix4.identity();
-  }
-
   Column normalCard(ColorScheme customScheme, BuildContext context,
-      bool usingCompactCards, bool usingSaikouCards) {
+      bool usingCompactCards, bool usingSaikouCards, double cardRoundness) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -145,18 +114,26 @@ class ReusableCarousel extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 10.0),
                 child: GestureDetector(
                   onTap: () {
-                    final argument = {
-                      'id': itemData['id'],
-                      'posterUrl': posterUrl,
-                      'tag': tagg,
-                    };
                     if (isManga) {
-                      Navigator.pushNamed(context, '/manga/details',
-                          arguments: argument);
-                      print('id: ${itemData['id']}');
+                      Navigator.pushNamed(
+                        context,
+                        '/manga/details',
+                        arguments: {
+                          'id': itemData['id'],
+                          'posterUrl': posterUrl,
+                          'tag': tagg
+                        },
+                      );
                     } else {
-                      Navigator.pushNamed(context, '/details',
-                          arguments: argument);
+                      Navigator.pushNamed(
+                        context,
+                        '/details',
+                        arguments: {
+                          'id': itemData['id'],
+                          'posterUrl': posterUrl,
+                          'tag': tagg
+                        },
+                      );
                     }
                   },
                   child: Column(
@@ -169,7 +146,8 @@ class ReusableCarousel extends StatelessWidget {
                               child: Hero(
                                 tag: tagg,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(18),
+                                  borderRadius:
+                                      BorderRadius.circular(cardRoundness),
                                   child: CachedNetworkImage(
                                     imageUrl: posterUrl,
                                     placeholder: (context, url) =>
@@ -201,9 +179,11 @@ class ReusableCarousel extends StatelessWidget {
                                         color: Theme.of(context)
                                             .colorScheme
                                             .surfaceContainer,
-                                        borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(18),
-                                            bottomRight: Radius.circular(16))),
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(
+                                                cardRoundness - 5),
+                                            bottomRight: Radius.circular(
+                                                cardRoundness))),
                                     child: Row(
                                       children: [
                                         Icon(
@@ -237,9 +217,11 @@ class ReusableCarousel extends StatelessWidget {
                                         color: Theme.of(context)
                                             .colorScheme
                                             .surfaceContainer,
-                                        borderRadius: const BorderRadius.only(
-                                            bottomLeft: Radius.circular(18),
-                                            topRight: Radius.circular(16))),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft:
+                                                Radius.circular(cardRoundness),
+                                            topRight: Radius.circular(
+                                                cardRoundness - 5))),
                                     child: Text(
                                       extraData,
                                       style: TextStyle(
@@ -332,5 +314,37 @@ class ReusableCarousel extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Matrix4 getTransformMatrix(TransformableListItem item) {
+    const maxScale = 1;
+    const minScale = 0.9;
+    final viewportWidth = item.constraints.viewportMainAxisExtent;
+    final itemLeftEdge = item.offset.dx;
+    final itemRightEdge = item.offset.dx + item.size.width;
+
+    bool isScrollingRight =
+        _scrollDirectionHelper.isScrollingRight(item.offset);
+
+    double visiblePortion;
+    if (isScrollingRight) {
+      visiblePortion = (viewportWidth - itemLeftEdge) / item.size.width;
+    } else {
+      visiblePortion = (itemRightEdge) / item.size.width;
+    }
+
+    if ((isScrollingRight && itemLeftEdge < viewportWidth) ||
+        (!isScrollingRight && itemRightEdge > 0)) {
+      const scaleRange = maxScale - minScale;
+      final scale =
+          minScale + (scaleRange * visiblePortion).clamp(0.0, scaleRange);
+
+      return Matrix4.identity()
+        ..translate(item.size.width / 2, 0, 0)
+        ..scale(scale)
+        ..translate(-item.size.width / 2, 0, 0);
+    }
+
+    return Matrix4.identity();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/main.dart';
+import 'package:yuix/screens/downloads/download_page.dart';
 import 'package:yuix/screens/user/profile.dart';
 import 'package:yuix/screens/user/settings.dart';
 import 'package:flutter/material.dart';
@@ -106,16 +107,28 @@ class SettingsModal extends StatelessWidget {
               );
             },
           ),
-          // ListTile(
-          //   leading: const Icon(Iconsax.setting),
-          //   title: const Text('Settings'),
-          //   onTap: () {
-          //     Navigator.pushReplacement(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => const SettingsPage()),
-          //     );
-          //   },
-          // ),
+
+          ListTile(
+            leading: const Icon(Iconsax.document_download),
+            title: const Text('Downloads'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const DownloadPage()),
+              );
+            },
+          ),
+
+          ListTile(
+            leading: const Icon(Iconsax.setting),
+            title: const Text('Settings'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsPage()),
+              );
+            },
+          ),
           if (isLoggedIn)
             ListTile(
               leading: const Icon(Iconsax.logout),

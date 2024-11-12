@@ -1,7 +1,9 @@
 import 'package:yuix/components/anilistExclusive/animeListCarousels.dart';
 import 'package:yuix/components/anime/details/image_button.dart';
+import 'package:yuix/components/novel/continue_noveling.dart';
 import 'package:yuix/fallbackData/anilist_homepage_data.dart';
 import 'package:yuix/fallbackData/anilist_manga_homepage.dart';
+import 'package:yuix/screens/MyList/mylist_page.dart';
 import 'package:yuix/screens/user/anilist_pages/anime_list.dart';
 import 'package:yuix/screens/user/anilist_pages/manga_list.dart';
 import 'package:yuix/hiveData/themeData/theme_provider.dart';
@@ -9,7 +11,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/material.dart';
 import 'package:yuix/auth/auth_provider.dart';
-import 'package:yuix/components/common/settings_modal.dart';
+import 'package:yuix/components/common/Settings_Modal.dart';
 import 'package:yuix/components/common/reusable_carousel.dart';
 import 'package:yuix/components/home/manga_homepage_carousel.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -57,17 +59,22 @@ class _HomePageState extends State<HomePage> {
         final avatarImagePath =
             anilistProvider.userData?['user']?['avatar']?['large'];
         final isLoggedIn = anilistProvider.userData?['user']?['name'] != null;
-        // final animeList = isLoggedIn &&
-        //         anilistProvider.userData != null &&
-        //         anilistProvider.userData.containsKey('currentlyWatching')
-        //     ? (anilistProvider.userData['currentlyWatching'] ?? [])
-        //     : [];
+        final animeList = isLoggedIn &&
+                anilistProvider.userData != null &&
+                anilistProvider.userData.containsKey('currentlyWatching')
+            ? (anilistProvider.userData['currentlyWatching'].reversed
+                    .toList() ??
+                [])
+            : [];
         return ValueListenableBuilder(
           valueListenable: Hive.box('app-data').listenable(),
           builder: (context, Box appBox, _) {
             // final rawDataManga = anilistProvider.userData['mangaList'];
-            final mangaList = anilistProvider.userData['mangaList'];
-            final dynamic readingMangaList = appBox.get('currently-reading');
+            final mangaList = anilistProvider.userData?['mangaList'];
+            final dynamic readingMangaList =
+                appBox.get('currently-reading')?.reversed.toList();
+            final dynamic readingNovelList =
+                appBox.get('currently-noveling')?.reversed.toList();
 
             return Scaffold(
               backgroundColor: Theme.of(context).colorScheme.surface,
@@ -88,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
-                                width: 70,
+                                width: 50,
                                 height: 70,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(30),
@@ -96,6 +103,9 @@ class _HomePageState extends State<HomePage> {
                                     'assets/images/logo_transparent.png',
                                     fit: BoxFit.cover,
                                     alignment: Alignment.center,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inverseSurface,
                                   ),
                                 ),
                               ),
@@ -138,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           const SizedBox(height: 60),
                           Text(
-                            'Hey ${isLoggedIn ? userName : 'Guest'}',
+                            'Hey ${isLoggedIn ? userName : 'Guest'}, What are we doing today?',
                             style: const TextStyle(
                                 fontSize: 30, fontFamily: 'Poppins-Bold'),
                             textAlign: TextAlign.center,
@@ -147,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
-                              '',
+                              'Find your favorite anime or manga, manhwa or whatever you like!',
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .colorScheme
@@ -163,61 +173,72 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Column(
                     children: [
-                      // if (isLoggedIn)
-                      //   Padding(
-                      //     padding: const EdgeInsets.only(top: 20.0),
-                      //     child: Row(
-                      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      //       children: [
-                      //         ImageButton(
-                      //           width:
-                      //               MediaQuery.of(context).size.width / 2 - 40,
-                      //           buttonText: 'ANIME LIST',
-                      //           onPressed: () {
-                      //             Navigator.push(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                 builder: (context) => AnimeList(),
-                      //               ),
-                      //             );
-                      //             // context.go('/anime-list')
-                      //             Provider.of<AniListProvider>(context,
-                      //                     listen: false)
-                      //                 .fetchUserAnimeList();
-                      //           },
-                      //           backgroundImage:
-                      //               'https://s4.anilist.co/file/anilistcdn/media/anime/banner/110277-iuGn6F5bK1U1.jpg',
-                      //         ),
-                      //         ImageButton(
-                      //           width:
-                      //               MediaQuery.of(context).size.width / 2 - 40,
-                      //           buttonText: 'MANGA LIST',
-                      //           onPressed: () {
-                      //             Navigator.push(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                 builder: (context) => AnilistMangaList(),
-                      //               ),
-                      //             );
-                      //             Provider.of<AniListProvider>(context,
-                      //                     listen: false)
-                      //                 .fetchUserMangaList();
-                      //           },
-                      //           backgroundImage:
-                      //               'https://s4.anilist.co/file/anilistcdn/media/manga/banner/30002-3TuoSMl20fUX.jpg',
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // const SizedBox(height: 20),
-                      // if (anilistProvider.userData?['data'] != null)
-                      //   anilistCarousel(
-                      //     title: 'Currently Watching',
-                      //     carouselData: animeList,
-                      //     tag: 'currently-watching',
-                      //   )
-                      // else
-                      // loader(),
+                      if (isLoggedIn)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ImageButton(
+                                width:
+                                    MediaQuery.of(context).size.width / 2 - 40,
+                                buttonText: 'ANIME LIST',
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => AnimeList(),
+                                    ),
+                                  );
+                                  Provider.of<AniListProvider>(context,
+                                          listen: false)
+                                      .fetchUserAnimeList();
+                                },
+                                backgroundImage:
+                                    'https://s4.anilist.co/file/anilistcdn/media/anime/banner/110277-iuGn6F5bK1U1.jpg',
+                              ),
+                              ImageButton(
+                                width:
+                                    MediaQuery.of(context).size.width / 2 - 40,
+                                buttonText: 'MANGA LIST',
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => AnilistMangaList(),
+                                    ),
+                                  );
+                                  Provider.of<AniListProvider>(context,
+                                          listen: false)
+                                      .fetchUserMangaList();
+                                },
+                                backgroundImage:
+                                    'https://s4.anilist.co/file/anilistcdn/media/manga/banner/30002-3TuoSMl20fUX.jpg',
+                              ),
+                            ],
+                          ),
+                        ),
+                      const SizedBox(height: 20),
+                      ImageButton(
+                          width: 200,
+                          buttonText: "FAVOURITES",
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MyList()));
+                          },
+                          backgroundImage:
+                              'https://images3.alphacoders.com/128/thumb-1920-1283303.png'),
+                      const SizedBox(height: 20),
+                      if (anilistProvider.userData?['data'] != null)
+                        anilistCarousel(
+                          title: 'Currently Watching',
+                          carouselData: animeList,
+                          tag: 'currently-watching',
+                        )
+                      else
+                        loader(),
                       anilistCarousel(
                         title: 'Currently Reading',
                         carouselData: mangaList,
@@ -230,6 +251,11 @@ class _HomePageState extends State<HomePage> {
                           carouselData: readingMangaList,
                           tag: 'home-page',
                         ),
+                      ContinueNoveling(
+                        carouselData: readingNovelList,
+                        title: 'Continue Novelling',
+                        tag: 'Novel-Carousel',
+                      ),
                       ReusableCarousel(
                         title: 'Recommended',
                         carouselData: fallbackAnilistData['data']
@@ -312,7 +338,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: const Center(
                           child: Text(
-                            'Welcome To YuiX',
+                            'Welcome To AnymeX',
                             style: TextStyle(fontFamily: 'Poppins-SemiBold'),
                           ),
                         ),
@@ -449,7 +475,6 @@ class _HomePageState extends State<HomePage> {
                                     onPressed: () {
                                       Hive.box('login-data')
                                           .put('isFirstTime', false);
-
                                       Navigator.of(context).pop();
                                     },
                                     label: Text(

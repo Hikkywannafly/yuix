@@ -3,7 +3,7 @@
 import 'dart:math';
 
 import 'package:yuix/components/helper/scroll_helper.dart';
-import 'package:yuix/screens/novel/details_page.dart';
+import 'package:yuix/screens/Novel/details_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -37,9 +37,11 @@ class ReusableCarousel extends StatelessWidget {
             box.get('usingCompactCards', defaultValue: false);
         final bool usingSaikouCards =
             box.get('usingSaikouCards', defaultValue: true);
+        final double cardRoundness =
+            box.get('cardRoundness', defaultValue: 18.0);
 
-        return normalCard(
-            customScheme, context, usingCompactCards, usingSaikouCards);
+        return normalCard(customScheme, context, usingCompactCards,
+            usingSaikouCards, cardRoundness);
       },
     );
   }
@@ -77,7 +79,7 @@ class ReusableCarousel extends StatelessWidget {
   }
 
   Column normalCard(ColorScheme customScheme, BuildContext context,
-      bool usingCompactCards, bool usingSaikouCards) {
+      bool usingCompactCards, bool usingSaikouCards, double cardRoundness) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -123,7 +125,7 @@ class ReusableCarousel extends StatelessWidget {
               final String title = itemData['title'] ?? '?';
               final random = Random().nextInt(100000);
               final tagg = '${itemData['id']}$random';
-              String extraData = itemData['rating'] ?? '??';
+              String extraData = itemData['rating']?.toString() ?? '??';
 
               return Padding(
                 padding: const EdgeInsets.only(right: 10.0),
@@ -149,7 +151,8 @@ class ReusableCarousel extends StatelessWidget {
                               child: Hero(
                                 tag: tagg,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(18),
+                                  borderRadius:
+                                      BorderRadius.circular(cardRoundness),
                                   child: CachedNetworkImage(
                                     imageUrl: posterUrl,
                                     placeholder: (context, url) =>
@@ -181,9 +184,11 @@ class ReusableCarousel extends StatelessWidget {
                                         color: Theme.of(context)
                                             .colorScheme
                                             .surfaceContainer,
-                                        borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(18),
-                                            bottomRight: Radius.circular(16))),
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(
+                                                cardRoundness - 5),
+                                            bottomRight: Radius.circular(
+                                                cardRoundness))),
                                     child: Row(
                                       children: [
                                         Icon(
@@ -217,9 +222,11 @@ class ReusableCarousel extends StatelessWidget {
                                         color: Theme.of(context)
                                             .colorScheme
                                             .surfaceContainer,
-                                        borderRadius: const BorderRadius.only(
-                                            bottomLeft: Radius.circular(18),
-                                            topRight: Radius.circular(16))),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(
+                                                cardRoundness - 5),
+                                            topRight: Radius.circular(
+                                                cardRoundness))),
                                     child: Text(
                                       extraData,
                                       style: TextStyle(
