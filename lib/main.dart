@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/hiveData/appData/database.dart';
 import 'package:yuix/screens/novel/home_page.dart';
-import 'package:yuix/screens/user/profile.dart';
 import 'package:yuix/hiveData/themeData/theme_provider.dart';
 import 'package:yuix/screens/anime/home_page.dart';
 import 'package:yuix/screens/manga/home_page.dart';
@@ -13,15 +12,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:hugeicons/hugeicons.dart';
-import 'package:yuix/screens/anime/details_page.dart';
-import 'package:yuix/screens/anime/search_page.dart';
-import 'package:yuix/screens/manga/details_page.dart';
-import 'package:yuix/screens/manga/read_page.dart';
-import 'package:yuix/screens/manga/search_page.dart';
-import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
-import 'package:iconly/iconly.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:yuix/routers/route.dart';
+import 'package:yuix/routers/main_screen.dart';
+import 'package:yuix/screens/user/settings.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -86,6 +79,7 @@ class _MainAppState extends State<MainApp> {
     const AnimeHomePage(),
     const MangaHomePage(),
     const NovelHomePage(),
+    const SettingsPage(),
   ];
 
   @override
@@ -98,97 +92,12 @@ class _MainAppState extends State<MainApp> {
         extendBody: true,
         extendBodyBehindAppBar: true,
         body: routes[_selectedIndex],
-        bottomNavigationBar: CrystalNavigationBar(
-          currentIndex: _selectedIndex,
-          paddingR: const EdgeInsets.all(10),
-          marginR: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-          enablePaddingAnimation: true,
-          unselectedItemColor: Colors.white,
-          backgroundColor: Colors.black.withOpacity(0.3),
-          onTap: _onItemTapped,
-          items: [
-            CrystalNavigationBarItem(
-              icon: IconlyBold.home,
-              unselectedIcon: IconlyLight.home,
-              selectedColor: themeProvider.selectedTheme.colorScheme.primary,
-            ),
-            CrystalNavigationBarItem(
-              icon: Icons.movie_filter_rounded,
-              unselectedIcon: Icons.movie_filter_outlined,
-              selectedColor: themeProvider.selectedTheme.colorScheme.primary,
-            ),
-            CrystalNavigationBarItem(
-              icon: Iconsax.book,
-              unselectedIcon: Iconsax.book,
-              selectedColor: themeProvider.selectedTheme.colorScheme.primary,
-            ),
-            CrystalNavigationBarItem(
-              icon: HugeIcons.strokeRoundedBookOpen01,
-              unselectedIcon: HugeIcons.strokeRoundedBookOpen01,
-              selectedColor: themeProvider.selectedTheme.colorScheme.primary,
-            ),
-          ],
+        bottomNavigationBar: AppNavigationBar(
+          selectedIndex: _selectedIndex,
+          onItemTapped: _onItemTapped,
         ),
       ),
-      onGenerateRoute: (settings) {
-        final args = settings.arguments as Map<String, dynamic>?;
-
-        switch (settings.name) {
-          case '/details':
-            final posterUrl = args?['posterUrl'] ?? '';
-            final id = args?['id'] ?? 0;
-            final tag = args?['tag'] ?? '';
-            return MaterialPageRoute(
-              builder: (context) => DetailsPage(
-                id: id,
-                posterUrl: posterUrl,
-                tag: tag,
-              ),
-            );
-          case '/anime/search':
-            final id = args?['term'] ?? '';
-            return MaterialPageRoute(
-              builder: (context) => SearchPage(searchTerm: id),
-            );
-          case '/manga/search':
-            final id = args?['term'] ?? '';
-            return MaterialPageRoute(
-              builder: (context) => MangaSearchPage(searchTerm: id),
-            );
-          case '/manga/details':
-            final posterUrl = args?['posterUrl'] ?? '';
-            final id = args?['id'] ?? '';
-            final tag = args?['tag'] ?? '';
-            return MaterialPageRoute(
-              builder: (context) =>
-                  MangaDetailsPage(id: id, posterUrl: posterUrl, tag: tag),
-            );
-          case '/manga/read':
-            final id = args?['id'] ?? '';
-            final mangaId = args?['mangaId'] ?? '';
-            final posterUrl = args?['posterUrl'] ?? '';
-            final currentSource = args?['currentSource'] ?? '';
-            return MaterialPageRoute(
-              builder: (context) => ReadingPage(
-                id: id,
-                mangaId: mangaId,
-                posterUrl: posterUrl,
-                currentSource: currentSource,
-              ),
-            );
-          case '/profile':
-            return MaterialPageRoute(
-              builder: (context) => const ProfilePage(),
-            );
-          default:
-            return MaterialPageRoute(
-              builder: (context) => Scaffold(
-                body: Center(
-                    child: Text('No route defined for ${settings.name}')),
-              ),
-            );
-        }
-      },
+      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }

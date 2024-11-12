@@ -1,6 +1,6 @@
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/components/common/IconWithLabel.dart';
-import 'package:yuix/components/common/SettingsModal.dart';
+import 'package:yuix/components/common/Settings_Modal.dart';
 import 'package:yuix/fallbackData/anilist_homepage_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../components/anime/home/cover_carousel.dart';

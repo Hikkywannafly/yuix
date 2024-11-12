@@ -9,7 +9,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/material.dart';
 import 'package:yuix/auth/auth_provider.dart';
-import 'package:yuix/components/common/SettingsModal.dart';
+import 'package:yuix/components/common/settings_modal.dart';
 import 'package:yuix/components/common/reusable_carousel.dart';
 import 'package:yuix/components/home/manga_homepage_carousel.dart';
 import 'package:hive_flutter/hive_flutter.dart';

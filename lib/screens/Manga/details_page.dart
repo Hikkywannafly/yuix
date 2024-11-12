@@ -47,7 +47,7 @@ dynamic genrePreviews = {
 };
 
 class MangaDetailsPage extends StatefulWidget {
-  final String id;
+  final int id;
   final String? posterUrl;
   final String? tag;
   const MangaDetailsPage({
@@ -112,7 +112,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
 
   Future<void> fetchData() async {
     try {
-      final tempdata = await fetchAnimeInfo(int.parse(widget.id));
+      final tempdata = await fetchAnimeInfo(widget.id);
       setState(() {
         data = tempdata;
         description = data?['description'];

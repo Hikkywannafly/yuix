@@ -1,88 +1,56 @@
-// main_screen.dart
-import 'package:flutter/material.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
-import 'package:iconly/iconly.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
-// import 'package:provider/provider.dart';
-// import 'package:yuix/hiveData/themeData/theme_provider.dart';
-// import 'package:go_router/go_router.dart';
-import 'package:yuix/screens/anime/details_page.dart';
-import 'package:yuix/screens/anime/search_page.dart';
-import 'package:yuix/screens/manga/details_page.dart';
-import 'package:yuix/screens/manga/read_page.dart';
-import 'package:yuix/screens/manga/search_page.dart';
+import 'package:iconsax/iconsax.dart';
 
-import 'package:yuix/screens/anime/home_page.dart';
-import 'package:yuix/screens/manga/home_page.dart';
-import 'package:yuix/screens/home_page.dart';
-import 'package:yuix/screens/novel/home_page.dart';
-import 'package:yuix/screens/user/settings.dart';
+class AppNavigationBar extends StatelessWidget {
+  final int selectedIndex;
+  final ValueChanged<int> onItemTapped;
 
-class MainScreen extends StatefulWidget {
-  final Widget child;
-  // final GoRouterState state;
-  const MainScreen({super.key, required this.child});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  final routes = [
-    const HomePage(),
-    const AnimeHomePage(),
-    const MangaHomePage(),
-    const NovelHomePage(),
-    const SettingsPage(),
-  ];
+  const AppNavigationBar({
+    Key? key,
+    required this.selectedIndex,
+    required this.onItemTapped,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      extendBodyBehindAppBar: true,
-      body: routes[_selectedIndex],
-      bottomNavigationBar: CrystalNavigationBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: [
-          CrystalNavigationBarItem(
-            icon: Iconsax.home,
-            unselectedIcon: Iconsax.home,
-            selectedColor: Theme.of(context).colorScheme.primary,
-          ),
-          CrystalNavigationBarItem(
-            icon: Iconsax.video_play,
-            unselectedIcon: Iconsax.video_play,
-            selectedColor: Theme.of(context).colorScheme.primary,
-          ),
-          CrystalNavigationBarItem(
-            icon: Iconsax.book,
-            unselectedIcon: Iconsax.book,
-            selectedColor: Theme.of(context).colorScheme.primary,
-          ),
-          CrystalNavigationBarItem(
-            icon: HugeIcons.strokeRoundedBookOpen01,
-            unselectedIcon: HugeIcons.strokeRoundedBookOpen01,
-            selectedColor: Theme.of(context).colorScheme.primary,
-          ),
-          CrystalNavigationBarItem(
-            icon: Iconsax.setting,
-            unselectedIcon: Iconsax.setting,
-            selectedColor: Theme.of(context).colorScheme.primary,
-          ),
-        ],
-      ),
+    // final themeProvider = Provider.of<ThemeProvider>(context);
+    return CrystalNavigationBar(
+      currentIndex: selectedIndex,
+      paddingR: const EdgeInsets.all(10),
+      marginR: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      enablePaddingAnimation: true,
+      // unselectedItemColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      onTap: onItemTapped,
+      items: [
+        CrystalNavigationBarItem(
+          icon: Iconsax.home,
+          unselectedIcon: Iconsax.home,
+          selectedColor: Theme.of(context).colorScheme.primary,
+        ),
+        CrystalNavigationBarItem(
+          icon: Iconsax.video_play,
+          unselectedIcon: Iconsax.video_play,
+          selectedColor: Theme.of(context).colorScheme.primary,
+        ),
+        CrystalNavigationBarItem(
+          icon: Iconsax.book,
+          unselectedIcon: Iconsax.book,
+          selectedColor: Theme.of(context).colorScheme.primary,
+        ),
+        CrystalNavigationBarItem(
+          icon: HugeIcons.strokeRoundedBookOpen01,
+          unselectedIcon: HugeIcons.strokeRoundedBookOpen01,
+          selectedColor: Theme.of(context).colorScheme.primary,
+        ),
+        CrystalNavigationBarItem(
+          icon: Iconsax.setting,
+          unselectedIcon: Iconsax.setting,
+          selectedColor: Theme.of(context).colorScheme.primary,
+        ),
+      ],
     );
   }
 }

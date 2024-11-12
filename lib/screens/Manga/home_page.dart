@@ -2,7 +2,7 @@ import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/components/anime/home/carousel.dart';
 import 'package:yuix/components/anime/home/cover_carousel.dart';
 import 'package:yuix/components/common/IconWithLabel.dart';
-import 'package:yuix/components/common/SettingsModal.dart';
+import 'package:yuix/components/common/settings_modal.dart';
 import 'package:yuix/components/anime/home/data_table.dart';
 import 'package:yuix/components/common/reusable_carousel.dart';
 import 'package:yuix/fallbackData/anilist_manga_homepage.dart';
@@ -14,9 +14,6 @@ import 'package:iconly/iconly.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:go_router/go_router.dart';
-import 'package:yuix/routers/route.dart';
-
 class MangaHomePage extends StatefulWidget {
   const MangaHomePage({super.key});
 
@@ -212,22 +209,6 @@ Container ListItem(BuildContext context, {required data, required tag}) {
               'posterUrl': proxyUrl + anime['coverImage']['large'],
               'tag': title + tag.toString()
             });
-            print('test');
-            // router.go(
-            //'/details', queryParameters: {
-            //   'id': anime['id'].toString(),
-            //   'posterUrl': proxyUrl + anime['coverImage']['large'],
-            //   'tag': title + tag.toString()
-            // });
-
-            // router.push(Uri(
-            //   path: '/details',
-            //   queryParameters: {
-            //     'id': anime['id'].toString(),
-            //     'posterUrl': proxyUrl + anime['coverImage']['large'],
-            //     'tag': title + tag.toString()
-            //   },
-            // ).toString());
           },
           child: Container(
             width: MediaQuery.of(context).size.width,

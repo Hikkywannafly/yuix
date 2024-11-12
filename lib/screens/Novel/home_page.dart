@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:yuix/auth/auth_provider.dart';
-import 'package:yuix/components/common/SettingsModal.dart';
+import 'package:yuix/components/common/settings_modal.dart';
 import 'package:yuix/components/novel/carousel.dart';
 import 'package:yuix/components/novel/reusable_carousel.dart';
 import 'package:yuix/fallbackData/novel_homepage.dart';
