@@ -56,6 +56,7 @@ dependencies:
   flutter_animate: ^4.5.0
   js_unpack: ^1.0.4
   permission_handler: ^11.3.1
+  rename_app: ^1.6.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

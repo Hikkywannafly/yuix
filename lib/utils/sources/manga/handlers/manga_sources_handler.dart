@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'package:yuix/utils/sources/manga/extensions/mangabat.dart';
 import 'package:yuix/utils/sources/manga/extensions/mangakakalot.dart';
 import 'package:yuix/utils/sources/manga/extensions/mangakakalot_unofficial.dart';
-import 'package:yuix/utils/sources/manga/extensions/manganato.dart';
+// import 'package:yuix/utils/sources/manga/extensions/manganato.dart';
 import '../base/source_base.dart';
 
 class MangaSourceHandler {
@@ -10,7 +10,7 @@ class MangaSourceHandler {
     "MangaKakalotUnofficial": MangaKakalotUnofficial(),
     "MangaKakalot": MangaKakalot(),
     "MangaBat": MangaBat(),
-    "MangaNato": MangaNato(),
+    // "MangaNato": MangaNato(),
   };
 
   String? selectedSourceName = "MangaKakalotUnofficial";

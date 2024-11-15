@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
-                                width: 50,
+                                width: 60,
                                 height: 70,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(30),
@@ -103,9 +103,9 @@ class _HomePageState extends State<HomePage> {
                                     'assets/images/logo_transparent.png',
                                     fit: BoxFit.cover,
                                     alignment: Alignment.center,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inverseSurface,
+                                    // color: Theme.of(context)
+                                    //     .colorScheme
+                                    //     .inverseSurface,
                                   ),
                                 ),
                               ),

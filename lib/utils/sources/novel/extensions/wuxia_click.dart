@@ -181,7 +181,7 @@ class WuxiaClick implements NovelSourceBase {
 
       return novelData;
     } else {
-      print('Failed to load page: ${response.statusCode}');
+      log('Failed to load page: ${response.statusCode}');
       return {};
     }
   }

@@ -4,7 +4,11 @@ import 'package:http/http.dart' as http;
 
 Future<List<Map<String, dynamic>>> fetchMangaBySearch(String query) async {
   const url = 'https://graphql.anilist.co/';
-  final headers = {'Content-Type': 'application/json'};
+  final headers = {
+    'Content-Type': 'application/json',
+    'Referer': 'https://anilist.co/',
+    
+  };
 
   final body = jsonEncode({
     'query': '''

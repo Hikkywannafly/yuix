@@ -17,7 +17,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
-import 'package:iconly/iconly.dart';
 import 'package:iconsax/iconsax.dart';
 
 void main() async {
