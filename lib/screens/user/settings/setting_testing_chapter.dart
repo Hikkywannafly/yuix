@@ -17,7 +17,7 @@ class ChapterDetailPage extends StatefulWidget {
   State<ChapterDetailPage> createState() => _ChapterDetailPageState();
 }
 
-final String proxyURl = 'http://localhost:3002/proxy?';
+final String proxyURl = 'https://yuix-proxy.hikky.workers.dev/proxy?url=';
 
 class _ChapterDetailPageState extends State<ChapterDetailPage> {
   Future<List<String>>? _imageFuture;

@@ -65,7 +65,7 @@ class MangaDetailsPage extends StatefulWidget {
 class _MangaDetailsPageState extends State<MangaDetailsPage>
     with SingleTickerProviderStateMixin {
   bool usingSaikouLayout =
-      Hive.box('app-data').get('usingSaikouLayout', defaultValue: false);
+      Hive.box('app-data').get('usingSaikouLayout', defaultValue: true);
   dynamic data;
   bool isLoading = true;
   dynamic altdata;

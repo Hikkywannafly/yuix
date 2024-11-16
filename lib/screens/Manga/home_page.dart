@@ -207,7 +207,9 @@ Container ListItem(BuildContext context, {required data, required tag}) {
           onTap: () {
             Navigator.pushNamed(context, '/manga/details', arguments: {
               'id': anime['id'],
-              'posterUrl': proxyUrl + anime['coverImage']['large'],
+              'posterUrl': proxyUrl +
+                  'https://anilist.co/&src=' +
+                  anime['coverImage']['large'],
               'tag': title + tag.toString()
             });
           },

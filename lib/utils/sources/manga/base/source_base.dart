@@ -1,6 +1,6 @@
 abstract class SourceBase {
   String get sourceName;
-  String get sourceVersion;
+  String get locale;
   String get baseUrl;
 
   Future<dynamic> fetchMangaChapters(String id);

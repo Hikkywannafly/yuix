@@ -1,16 +1,15 @@
 import 'dart:developer';
-import 'package:yuix/utils/sources/manga/extensions/mangabat.dart';
-import 'package:yuix/utils/sources/manga/extensions/mangakakalot.dart';
+// import 'package:yuix/utils/sources/manga/extensions/mangabat.dart';
+// import 'package:yuix/utils/sources/manga/extensions/mangakakalot.dart';
 import 'package:yuix/utils/sources/manga/extensions/mangakakalot_unofficial.dart';
+import 'package:yuix/utils/sources/manga/extensions/truyenqq.dart';
 // import 'package:yuix/utils/sources/manga/extensions/manganato.dart';
 import '../base/source_base.dart';
 
 class MangaSourceHandler {
   final Map<String, SourceBase> sourceMap = {
     "MangaKakalotUnofficial": MangaKakalotUnofficial(),
-    "MangaKakalot": MangaKakalot(),
-    "MangaBat": MangaBat(),
-    // "MangaNato": MangaNato(),
+    "TruyenQQ": TruyenQQ(),
   };
 
   String? selectedSourceName = "MangaKakalotUnofficial";
@@ -36,7 +35,7 @@ class MangaSourceHandler {
       final source = entry.value;
       return {
         "name": source.sourceName,
-        "version": source.sourceVersion,
+        "locale": source.locale,
         "baseUrl": source.baseUrl,
       };
     }).toList();

@@ -208,5 +208,5 @@ class MangaBat implements SourceBase {
   String get sourceName => 'MangaBat';
 
   @override
-  String get sourceVersion => '1.0';
+  String get locale => 'en-US';
 }

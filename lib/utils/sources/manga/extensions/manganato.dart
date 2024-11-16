@@ -12,7 +12,7 @@ class MangaNato implements SourceBase {
   String get sourceName => 'MangaNato';
 
   @override
-  String get sourceVersion => '1.0';
+  String get locale => 'en-US';
 
   @override
   Future<Map<String, dynamic>> fetchMangaChapters(String mangaId) async {

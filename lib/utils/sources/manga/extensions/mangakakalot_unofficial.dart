@@ -17,7 +17,7 @@ class MangaKakalotUnofficial implements SourceBase {
   String get sourceName => 'MangaKakalotUnofficial';
 
   @override
-  String get sourceVersion => '1.0';
+  String get locale => 'en-US';
 
   @override
   Future<dynamic> fetchMangaChapters(String mangaId) async {
@@ -71,6 +71,7 @@ class MangaKakalotUnofficial implements SourceBase {
           'title': name,
           'chapterList': chapters.reversed.toList(),
         };
+        log('Scraped Manga Info: ${metaData.toString()}');
         return metaData;
       } else {
         log('Failed to load manga details, status code: ${response.statusCode}');
@@ -140,6 +141,7 @@ class MangaKakalotUnofficial implements SourceBase {
             [];
 
         final assets = {
+          'source': baseUrl,
           'title': title,
           'currentChapter': currentChapter,
           'nextChapterId': nextChapterLink.split('/').last,
@@ -148,8 +150,7 @@ class MangaKakalotUnofficial implements SourceBase {
           'images': images,
           'totalImages': index,
         };
-
-        log(assets.toString());
+        print(assets.toString());
         return assets;
       } else {
         log('Failed to load chapter details, status code: ${response.statusCode}');

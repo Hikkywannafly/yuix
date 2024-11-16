@@ -29,7 +29,7 @@ class NovelDetailsPage extends StatefulWidget {
 class _NovelDetailsPageState extends State<NovelDetailsPage>
     with SingleTickerProviderStateMixin {
   bool usingSaikouLayout =
-      Hive.box('app-data').get('usingSaikouLayout', defaultValue: false);
+      Hive.box('app-data').get('usingSaikouLayout', defaultValue: true);
   dynamic data;
   dynamic mappedData;
   dynamic chapterData;

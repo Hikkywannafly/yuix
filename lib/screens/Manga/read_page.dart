@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/components/manga/toggle_bars.dart';
 import 'package:yuix/hiveData/appData/database.dart';
+import 'package:yuix/screens/user/settings/setting_testing_chapter.dart';
+import 'package:yuix/utils/apiHooks/api.dart';
 import 'package:yuix/utils/sources/manga/handlers/manga_sources_handler.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -159,9 +161,9 @@ class _ReadingPageState extends State<ReadingPage> {
       child: Center(
         child: isLoading
             ? const CircularProgressIndicator()
-            : hasError
-                ? const Text('Failed to load data')
-                : _buildLayoutContent(),
+            // : hasError
+            //     ? const Text('Failed to load data')
+            : _buildLayoutContent(),
       ),
     );
   }
@@ -180,9 +182,13 @@ class _ReadingPageState extends State<ReadingPage> {
           controller: _scrollController,
           itemCount: chapterImages!.length,
           itemBuilder: (context, index) {
-            return CachedNetworkImage(
-              imageUrl: chapterImages![index]['image'],
-              httpHeaders: const {'Referer': 'https://chapmanganato.to/'},
+            return
+                // Text(
+                //     '$proxyUrl${mangaData['source']}&src=${chapterImages![index]['image']}');
+                CachedNetworkImage(
+              imageUrl:
+                  'https://yuix-proxy.hikky.workers.dev/proxy?url=${mangaData['source']}&src=${chapterImages![index]['image']}',
+              // httpHeaders: const {'Referer': 'https://chapmanganato.to/'},
               fit: BoxFit.cover,
               placeholder: (context, progress) => SizedBox(
                 height: MediaQuery.of(context).size.height,
