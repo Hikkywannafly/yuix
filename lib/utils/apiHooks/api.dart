@@ -6,15 +6,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 
-String proxyUrl = "";
+String proxyUrl = "https://yuix-proxy.hikky.workers.dev/proxy?url=";
 String consumetUrl = "${dotenv.get('CONSUMET_URL')}meta/anilist/";
 String aniwatchUrl = "${dotenv.get('ANIME_URL')}anime/";
 bool isRomaji = Hive.box('app-data').get('isRomaji', defaultValue: false);
 void toggleRomaji(String source, bool state) {}
 
 Future<dynamic>? fetchHomePageAniwatch() async {
-  final response =
-      await http.get(Uri.parse('$proxyUrl${aniwatchUrl}home'));
+  final response = await http.get(Uri.parse('$proxyUrl${aniwatchUrl}home'));
   if (response.statusCode == 200) {
     return jsonDecode(response.body);
   } else {
@@ -97,8 +96,7 @@ Future<dynamic>? fetchHomePageConsumet() async {
 
 Future<dynamic>? fetchAnimeDetailsConsumet(String id) async {
   try {
-    final resp =
-        await http.get(Uri.parse('$proxyUrl${consumetUrl}info/$id'));
+    final resp = await http.get(Uri.parse('$proxyUrl${consumetUrl}info/$id'));
 
     if (resp.statusCode == 200) {
       final data = jsonDecode(resp.body);
@@ -133,8 +131,7 @@ Future<dynamic> fetchAnimeDetailsAniwatch(String id) async {
 Future<dynamic>? fetchSearchesAniwatch(String id) async {}
 Future<dynamic>? fetchSearchesConsumet(String id) async {}
 Future<dynamic>? fetchStreamingDataConsumet(String id) async {
-  final resp =
-      await http.get(Uri.parse('$proxyUrl${consumetUrl}episodes/$id'));
+  final resp = await http.get(Uri.parse('$proxyUrl${consumetUrl}episodes/$id'));
   if (resp.statusCode == 200) {
     final tempData = jsonDecode(resp.body);
     return tempData;
@@ -142,8 +139,7 @@ Future<dynamic>? fetchStreamingDataConsumet(String id) async {
 }
 
 Future<dynamic>? fetchStreamingDataAniwatch(String id) async {
-  final resp =
-      await http.get(Uri.parse('$proxyUrl${aniwatchUrl}episodes/$id'));
+  final resp = await http.get(Uri.parse('$proxyUrl${aniwatchUrl}episodes/$id'));
   if (resp.statusCode == 200) {
     final tempData = jsonDecode(resp.body);
     return tempData;
@@ -168,8 +164,7 @@ Future<dynamic> fetchStreamingLinksAniwatch(
 }
 
 Future<dynamic>? fetchStreamingLinksConsumet(String id) async {
-  final resp =
-      await http.get(Uri.parse('$proxyUrl${consumetUrl}watch/$id'));
+  final resp = await http.get(Uri.parse('$proxyUrl${consumetUrl}watch/$id'));
   if (resp.statusCode == 200) {
     final tempData = jsonDecode(resp.body);
     return tempData;

@@ -1,10 +1,10 @@
 import 'package:yuix/components/common/custom_tile.dart';
-import 'package:yuix/screens/user/settings/settings_about.dart';
+// import 'package:yuix/screens/user/settings/settings_about.dart';
 import 'package:yuix/screens/user/settings/settings_layout.dart';
 import 'package:yuix/screens/user/settings/settings_player.dart';
 import 'package:yuix/screens/user/settings/settings_theme.dart';
 import 'package:yuix/screens/user/settings/settings_testing.dart';
-import 'package:yuix/utils/downloader/downloader.dart';
+// import 'package:yuix/utils/downloader/downloader.dart';
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:iconsax/iconsax.dart';

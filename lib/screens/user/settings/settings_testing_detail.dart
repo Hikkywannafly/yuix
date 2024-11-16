@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
 import 'dart:developer';
 
+import 'package:yuix/screens/user/settings/setting_testing_chapter.dart';
+
 class MangaDetailPage extends StatefulWidget {
   final String mangaId;
   final String title;
@@ -31,15 +33,12 @@ class _MangaDetailPageState extends State<MangaDetailPage> {
     if (response.statusCode == 200) {
       final document = parser.parse(response.body);
 
-      // Get manga title
       final titleElement = document.querySelector('.title_tale h1');
       final title = titleElement != null ? titleElement.text.trim() : "Unknown";
 
-      // Get views
       final viewsElement = document.querySelector('.bi-eye-fill + p');
       final views = viewsElement != null ? viewsElement.text.trim() : "0";
 
-      // Get chapters
       final chapterElements =
           document.querySelectorAll('.list_chap .item_chap');
       List<Map<String, dynamic>> chapterList = [];
@@ -54,12 +53,12 @@ class _MangaDetailPageState extends State<MangaDetailPage> {
             titleElement != null ? titleElement.attributes['href'] ?? "#" : "#";
         final chapterDate =
             dateElement != null ? dateElement.text.trim() : "Unknown Date";
-
         chapterList.add({
           'title': chapterTitle,
           'url': chapterLink,
           'date': chapterDate,
         });
+        log('Chapter: $chapterTitle');
       }
 
       return {
@@ -124,7 +123,15 @@ class _MangaDetailPageState extends State<MangaDetailPage> {
                   title: Text(chapter['title']),
                   subtitle: Text('Date: ${chapter['date']}'),
                   onTap: () {
-                    // Handle chapter click here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChapterDetailPage(
+                          chapterUrl: chapter['url'],
+                          chapterTitle: chapter['title'],
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
