@@ -457,7 +457,7 @@ class _NovelReadingPageState extends State<NovelReadingPage> {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               color: _textColor,
-                              fontFamily: 'Poppins-SemiBold'),
+                              fontFamily: 'BalsamiqSans-SemiBold'),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 1.5,

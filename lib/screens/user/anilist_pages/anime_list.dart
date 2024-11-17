@@ -45,7 +45,7 @@ class AnimeList extends StatelessWidget {
                 .map((tab) => Tab(
                     child: Text(tab,
                         style:
-                            const TextStyle(fontFamily: 'Poppins-SemiBold'))))
+                            const TextStyle(fontFamily: 'BalsamiqSans-SemiBold'))))
                 .toList(),
           ),
         ),

@@ -136,7 +136,7 @@ class _AnimeHomePageState extends State<AnimeHomePage> {
                       'Top',
                       style: TextStyle(
                         fontSize: 16,
-                        fontFamily: 'Poppins',
+                        fontFamily: 'BalsamiqSans',
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -375,14 +375,14 @@ class _HeaderState extends State<Header> {
                       Text(
                         getGreetingMessage(),
                         style: const TextStyle(
-                          fontFamily: 'Poppins',
+                          fontFamily: 'BalsamiqSans',
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       Text(
                         userName,
                         style: const TextStyle(
-                          fontFamily: 'Poppins-Bold',
+                          fontFamily: 'BalsamiqSans-Bold',
                         ),
                       ),
                     ],

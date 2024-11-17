@@ -64,7 +64,7 @@ class CharacterCards extends StatelessWidget {
                 'Characters',
                 style: TextStyle(
                   fontSize: 16,
-                  fontFamily: 'Poppins',
+                  fontFamily: 'BalsamiqSans',
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -171,7 +171,7 @@ class CharacterCards extends StatelessWidget {
                   'Voice Actors',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Poppins',
+                    fontFamily: 'BalsamiqSans',
                     fontWeight: FontWeight.bold,
                   ),
                 ),

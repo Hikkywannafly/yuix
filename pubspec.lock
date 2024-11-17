@@ -632,6 +632,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.7"
+  i18n_extension:
+    dependency: "direct main"
+    description:
+      name: i18n_extension
+      sha256: "35ec0e5017600c567c39ab21d4e1126baa6dc61bcfc265dafab2b3cd1c062d94"
+      url: "https://pub.dev"
+    source: hosted
+    version: "13.0.2"
+  i18n_extension_core:
+    dependency: transitive
+    description:
+      name: i18n_extension_core
+      sha256: "5e140a8fb5541bafc6596c2866e92b131b90d8bf759d5f5a7c7c5de5744819db"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.7"
   iconify_flutter:
     dependency: "direct main"
     description:
@@ -728,6 +744,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.19.0"
   io:
     dependency: transitive
     description:

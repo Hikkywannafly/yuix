@@ -68,7 +68,7 @@ class HomepageCarousel extends StatelessWidget {
             title ?? '??',
             style: TextStyle(
               fontSize: 16,
-              fontFamily: 'Poppins',
+              fontFamily: 'BalsamiqSans',
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.primary,
             ),
@@ -162,7 +162,7 @@ class HomepageCarousel extends StatelessWidget {
                                     child: Text(
                                       extraData,
                                       style: TextStyle(
-                                          fontFamily: 'Poppins-SemiBold',
+                                          fontFamily: 'BalsamiqSans-SemiBold',
                                           fontSize: 11,
                                           color: Theme.of(context)
                                                       .colorScheme
@@ -196,7 +196,7 @@ class HomepageCarousel extends StatelessWidget {
                                     child: Text(
                                       extraData,
                                       style: TextStyle(
-                                          fontFamily: 'Poppins-Bold',
+                                          fontFamily: 'BalsamiqSans-Bold',
                                           fontSize: 11,
                                           color: Theme.of(context)
                                                       .colorScheme

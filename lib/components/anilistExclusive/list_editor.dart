@@ -261,7 +261,7 @@ class _ListEditorModalState extends State<ListEditorModal> {
       ),
       labelText: label,
       labelStyle: const TextStyle(
-        fontFamily: 'Poppins-Bold',
+        fontFamily: 'BalsamiqSans-Bold',
       ),
     );
   }

@@ -144,7 +144,7 @@ class _EpisodeGridState extends State<EpisodeGrid> {
                                     child: Text(
                                       'EP ${episodeNumber?.toString() ?? index.toString()}',
                                       style: const TextStyle(
-                                        fontFamily: 'Poppins-Bold',
+                                        fontFamily: 'BalsamiqSans-Bold',
                                       ),
                                     ),
                                   ),
@@ -165,7 +165,7 @@ class _EpisodeGridState extends State<EpisodeGrid> {
                           Text(
                             'Episode ${episodeNumber?.toString() ?? index.toString()}',
                             style: const TextStyle(
-                              fontFamily: 'Poppins-SemiBold',
+                              fontFamily: 'BalsamiqSans-SemiBold',
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -177,7 +177,7 @@ class _EpisodeGridState extends State<EpisodeGrid> {
                                   : Theme.of(context)
                                       .colorScheme
                                       .inverseSurface,
-                              fontFamily: 'Poppins-SemiBold',
+                              fontFamily: 'BalsamiqSans-SemiBold',
                               fontSize: 12,
                             ),
                             maxLines: 3,

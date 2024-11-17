@@ -40,7 +40,7 @@ class _AnimeTableState extends State<AnimeTable> {
           0: Text(
             widget.isManga ? 'Rated' : 'Day',
             style: TextStyle(
-                fontFamily: 'Poppins-SemiBold',
+                fontFamily: 'BalsamiqSans-SemiBold',
                 color: widget.currentIndex == 0
                     ? Theme.of(context).colorScheme.inverseSurface ==
                             Theme.of(context).colorScheme.onPrimaryFixedVariant
@@ -54,7 +54,7 @@ class _AnimeTableState extends State<AnimeTable> {
           1: Text(
             widget.isManga ? 'Ongoing' : 'Week',
             style: TextStyle(
-                fontFamily: 'Poppins-SemiBold',
+                fontFamily: 'BalsamiqSans-SemiBold',
                 color: widget.currentIndex == 1
                     ? Theme.of(context).colorScheme.inverseSurface ==
                             Theme.of(context).colorScheme.onPrimaryFixedVariant
@@ -68,7 +68,7 @@ class _AnimeTableState extends State<AnimeTable> {
           2: Text(
             widget.isManga ? 'Updated' : 'Month',
             style: TextStyle(
-                fontFamily: 'Poppins-SemiBold',
+                fontFamily: 'BalsamiqSans-SemiBold',
                 color: widget.currentIndex == 2
                     ? Theme.of(context).colorScheme.inverseSurface ==
                             Theme.of(context).colorScheme.onPrimaryFixedVariant

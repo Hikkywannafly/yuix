@@ -66,7 +66,7 @@ class ReusableCarousel extends StatelessWidget {
                 title ?? '??',
                 style: TextStyle(
                   fontSize: 16,
-                  fontFamily: 'Poppins',
+                  fontFamily: 'BalsamiqSans',
                   fontWeight: FontWeight.bold,
                   color: customScheme.primary,
                 ),
@@ -198,7 +198,7 @@ class ReusableCarousel extends StatelessWidget {
                                           extraData,
                                           style: TextStyle(
                                               fontSize: 11,
-                                              fontFamily: 'Poppins-Bold',
+                                              fontFamily: 'BalsamiqSans-Bold',
                                               color: Theme.of(context)
                                                   .colorScheme
                                                   .inverseSurface),
@@ -225,7 +225,7 @@ class ReusableCarousel extends StatelessWidget {
                                     child: Text(
                                       extraData,
                                       style: TextStyle(
-                                          fontFamily: 'Poppins-Bold',
+                                          fontFamily: 'BalsamiqSans-Bold',
                                           fontSize: 11,
                                           color: Theme.of(context)
                                               .colorScheme

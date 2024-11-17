@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             'Hey ${isLoggedIn ? userName : 'Guest'}, What are we doing today?',
                             style: const TextStyle(
-                                fontSize: 30, fontFamily: 'Poppins-Bold'),
+                                fontSize: 30, fontFamily: 'BalsamiqSans-Bold'),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 10),
@@ -339,7 +339,7 @@ class _HomePageState extends State<HomePage> {
                         child: const Center(
                           child: Text(
                             'Welcome To AnymeX',
-                            style: TextStyle(fontFamily: 'Poppins-SemiBold'),
+                            style: TextStyle(fontFamily: 'BalsamiqSans-SemiBold'),
                           ),
                         ),
                       ),
@@ -450,7 +450,7 @@ class _HomePageState extends State<HomePage> {
                                       label: Text(
                                         'Login via AniList',
                                         style: TextStyle(
-                                            fontFamily: 'Poppins-SemiBold',
+                                            fontFamily: 'BalsamiqSans-SemiBold',
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .inverseSurface),
@@ -480,7 +480,7 @@ class _HomePageState extends State<HomePage> {
                                     label: Text(
                                       'Skip',
                                       style: TextStyle(
-                                          fontFamily: 'Poppins-SemiBold',
+                                          fontFamily: 'BalsamiqSans-SemiBold',
                                           color: Theme.of(context)
                                               .colorScheme
                                               .inverseSurface),

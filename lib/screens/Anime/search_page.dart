@@ -95,7 +95,7 @@ class _SearchPageState extends State<SearchPage> {
               children: [
                 const Text('Search Results',
                     style: TextStyle(
-                        fontSize: 18, fontFamily: 'Poppins-SemiBold')),
+                        fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold')),
                 IconButton(
                   onPressed: _toggleView,
                   icon: Icon(
@@ -203,7 +203,7 @@ class _SearchPageState extends State<SearchPage> {
                 Text(
                   anime?['rating'] ?? 'PG-13',
                   style: TextStyle(
-                    fontFamily: 'Poppins-Bold',
+                    fontFamily: 'BalsamiqSans-Bold',
                     color: Theme.of(context).colorScheme.inverseSurface ==
                             Theme.of(context).colorScheme.onPrimaryFixedVariant
                         ? Colors.black

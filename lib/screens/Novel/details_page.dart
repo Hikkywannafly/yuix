@@ -238,7 +238,7 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
                         Text(data?['status'] ?? '??',
                             style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
-                                fontFamily: 'Poppins-SemiBold'))
+                                fontFamily: 'BalsamiqSans-SemiBold'))
                       ],
                     ),
                   ],
@@ -280,10 +280,10 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
                               children: const [
                                 Text('Read: ',
                                     style: TextStyle(
-                                        fontFamily: 'Poppins-SemiBold')),
+                                        fontFamily: 'BalsamiqSans-SemiBold')),
                                 Text('Chapter 1',
                                     style: TextStyle(
-                                        fontFamily: 'Poppins-SemiBold'))
+                                        fontFamily: 'BalsamiqSans-SemiBold'))
                               ],
                             )),
                       ),
@@ -324,7 +324,7 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
               ),
               const SizedBox(height: 30),
               Text('Description',
-                  style: TextStyle(fontFamily: 'Poppins-SemiBold')),
+                  style: TextStyle(fontFamily: 'BalsamiqSans-SemiBold')),
               const SizedBox(
                 height: 5,
               ),
@@ -347,7 +347,7 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
               const SizedBox(height: 20),
               Text('Statistics',
                   style:
-                      TextStyle(fontFamily: 'Poppins-SemiBold', fontSize: 16)),
+                      TextStyle(fontFamily: 'BalsamiqSans-SemiBold', fontSize: 16)),
               infoRow(field: 'Author', value: data['authors'].toString()),
               infoRow(field: 'Rating', value: data?['rating'] ?? '??'),
               infoRow(field: 'Total Chapters', value: data['chapters']),
@@ -359,7 +359,7 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
                   Expanded(
                     child: Text(
                       'Found: ${mappedData?['title'] ?? data?['title']}',
-                      style: TextStyle(fontFamily: 'Poppins-SemiBold'),
+                      style: TextStyle(fontFamily: 'BalsamiqSans-SemiBold'),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -389,7 +389,7 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
                       child: Text('Wrong Title?',
                           style: TextStyle(
                               color: Theme.of(context).colorScheme.primary,
-                              fontFamily: 'Poppins-SemiBold')),
+                              fontFamily: 'BalsamiqSans-SemiBold')),
                     ),
                   )
                 ],
@@ -424,7 +424,7 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
                     value: source['name'],
                     child: Text(
                       source['name']!,
-                      style: TextStyle(fontFamily: 'Poppins-SemiBold'),
+                      style: TextStyle(fontFamily: 'BalsamiqSans-SemiBold'),
                     ),
                   );
                 }).toList(),
@@ -487,7 +487,7 @@ class infoRow extends StatelessWidget {
         children: [
           Text(field,
               style: TextStyle(
-                  fontFamily: 'Poppins-Bold',
+                  fontFamily: 'BalsamiqSans-Bold',
                   color: Theme.of(context)
                       .colorScheme
                       .onSurface
@@ -501,7 +501,7 @@ class infoRow extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
-                      fontFamily: 'Poppins-Bold')),
+                      fontFamily: 'BalsamiqSans-Bold')),
             ),
           ),
         ],
@@ -596,7 +596,7 @@ class _ChapterListState extends State<ChapterList> {
                 'Chapters',
                 style: TextStyle(
                   fontSize: 22,
-                  fontFamily: "Poppins-Bold",
+                  fontFamily: "BalsamiqSans-Bold",
                 ),
                 textAlign: TextAlign.left,
               ),

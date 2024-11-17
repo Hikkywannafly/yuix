@@ -224,7 +224,7 @@ class MyListState extends State<MyList> with SingleTickerProviderStateMixin {
                             child: Text(
                               itemData['extra'],
                               style: TextStyle(
-                                  fontFamily: 'Poppins-SemiBold',
+                                  fontFamily: 'BalsamiqSans-SemiBold',
                                   fontSize: 11,
                                   color: Theme.of(context)
                                       .colorScheme

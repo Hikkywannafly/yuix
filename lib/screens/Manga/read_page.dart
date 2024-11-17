@@ -255,7 +255,7 @@ class _ReadingPageState extends State<ReadingPage> {
                     child: Text(
                       'Reader Settings',
                       style: TextStyle(
-                          fontSize: 18, fontFamily: 'Poppins-SemiBold'),
+                          fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold'),
                     ),
                   ),
                 ),
@@ -321,7 +321,7 @@ class _ReadingPageState extends State<ReadingPage> {
                   child: Text(
                     'Chapters',
                     style:
-                        TextStyle(fontSize: 18, fontFamily: 'Poppins-SemiBold'),
+                        TextStyle(fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold'),
                   ),
                 ),
               ),

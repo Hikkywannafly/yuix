@@ -68,7 +68,6 @@ class AboutPage extends StatelessWidget {
                 ],
               ),
               const Expanded(child: SizedBox.shrink()),
-              const Text('- Ryan Yuuki >_<'),
             ],
           ),
         ),

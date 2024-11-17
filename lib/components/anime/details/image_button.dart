@@ -74,7 +74,7 @@ class ImageButton extends StatelessWidget {
                   buttonText,
                   style: textStyle ??
                       TextStyle(
-                          color: textColor, fontFamily: 'Poppins-SemiBold'),
+                          color: textColor, fontFamily: 'BalsamiqSans-SemiBold'),
                 ),
                 const SizedBox(height: 3),
                 Container(

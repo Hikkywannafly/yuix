@@ -361,7 +361,7 @@ class _ToggleBarState extends State<ToggleBar> {
                                 const Color(0xffe2e2e2)
                             ? Colors.black
                             : Colors.white,
-                    fontFamily: 'Poppins-SemiBold'),
+                    fontFamily: 'BalsamiqSans-SemiBold'),
               ),
             ),
           ),

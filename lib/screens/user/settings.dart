@@ -4,6 +4,7 @@ import 'package:yuix/screens/user/settings/settings_layout.dart';
 import 'package:yuix/screens/user/settings/settings_player.dart';
 import 'package:yuix/screens/user/settings/settings_theme.dart';
 import 'package:yuix/screens/user/settings/settings_testing.dart';
+import 'package:yuix/screens/user/settings/settings_sources.dart';
 // import 'package:yuix/utils/downloader/downloader.dart';
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
@@ -47,15 +48,15 @@ class SettingsPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          // CustomTile(
-          //   icon: Icons.source,
-          //   title: 'Sources',
-          //   description: 'Switch Sources for Animes and Manga',
-          //   onTap: () {
-          //     Navigator.push(
-          //         context, _createSlideRoute(const SourcesSettingPage()));
-          //   },
-          // ),
+          CustomTile(
+            icon: Icons.source,
+            title: 'Sources',
+            description: 'Switch Sources for Animes and Manga',
+            onTap: () {
+              Navigator.push(
+                  context, _createSlideRoute(const SourcesSettingPage()));
+            },
+          ),
           CustomTile(
             icon: HugeIcons.strokeRoundedPaintBrush02,
             title: 'UI',

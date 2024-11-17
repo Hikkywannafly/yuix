@@ -403,7 +403,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
           const SizedBox(height: 30),
           Text(
             'Found: ${mangaData?['title']}',
-            style: TextStyle(fontFamily: 'Poppins-SemiBold'),
+            style: TextStyle(fontFamily: 'BalsamiqSans-BoldItalic'),
           ),
           const SizedBox(height: 10),
           DropdownButtonFormField<String>(
@@ -433,7 +433,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                 value: source['name'],
                 child: Text(
                   source['name']!,
-                  style: TextStyle(fontFamily: 'Poppins-SemiBold'),
+                  style: TextStyle(fontFamily: 'BalsamiqSans-BoldItalic'),
                 ),
               );
             }).toList(),
@@ -484,7 +484,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                 children: [
                   Text('Wrong Title?',
                       style: TextStyle(
-                        fontFamily: 'Poppins-Bold',
+                        fontFamily: 'BalsamiqSans-Bold',
                       )),
                   Positioned(
                     bottom: 0,
@@ -502,8 +502,8 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               Text('Chapters',
-                  style:
-                      TextStyle(fontSize: 18, fontFamily: 'Poppins-SemiBold')),
+                  style: TextStyle(
+                      fontSize: 18, fontFamily: 'BalsamiqSans-BoldItalic')),
               // IconButton(
               //   style: ElevatedButton.styleFrom(
               //       backgroundColor:
@@ -574,7 +574,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.secondary,
                           fontSize: 16,
-                          fontFamily: 'Poppins-SemiBold'),
+                          fontFamily: 'BalsamiqSans-BoldItalic'),
                     ),
                   ),
                 ],
@@ -700,7 +700,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                           ),
                           labelText: 'Status',
                           labelStyle: const TextStyle(
-                            fontFamily: 'Poppins-Bold',
+                            fontFamily: 'BalsamiqSans-Bold',
                           ),
                         ),
                         child: DropdownButtonHideUnderline(
@@ -762,7 +762,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                                 ),
                                 labelText: 'Progress',
                                 labelStyle: const TextStyle(
-                                  fontFamily: 'Poppins-Bold',
+                                  fontFamily: 'BalsamiqSans-Bold',
                                 ),
                               ),
                               initialValue: chapterProgress.toString(),
@@ -851,7 +851,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                           ),
                           labelText: 'Score',
                           labelStyle: const TextStyle(
-                            fontFamily: 'Poppins-Bold',
+                            fontFamily: 'BalsamiqSans-Bold',
                           ),
                         ),
                         initialValue: score.toString(),
@@ -974,7 +974,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                           text: "${returnMangaProgress()} ",
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
-                            fontFamily: 'Poppins-Bold',
+                            fontFamily: 'BalsamiqSans-Bold',
                           ),
                         ),
                         TextSpan(text: 'Out of ${data?['totalChapters']}')
@@ -1025,7 +1025,8 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
               infoRow(field: 'Premiered', value: data?['premiered'] ?? '??'),
               infoRow(field: 'Duration', value: '${data?['duration']}' ''),
               const SizedBox(height: 20),
-              Text('Synopsis', style: TextStyle(fontFamily: 'Poppins-Bold')),
+              Text('Synopsis',
+                  style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
               const SizedBox(height: 10),
               Text(description!.toString().length > 250
                   ? '${description!.toString().substring(0, 250)}...'
@@ -1033,7 +1034,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
 
               // Grid Section
               const SizedBox(height: 20),
-              Text('Genres', style: TextStyle(fontFamily: 'Poppins-Bold')),
+              Text('Genres', style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
               Flexible(
                 flex: 0,
                 child: GridView.builder(
@@ -1100,7 +1101,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                             child: Text(
                               genre.toUpperCase(),
                               style: TextStyle(
-                                fontFamily: 'Poppins-Bold',
+                                fontFamily: 'BalsamiqSans-Bold',
                                 color: Colors.white,
                               ),
                             ),
@@ -1116,7 +1117,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
         ),
         const SizedBox(height: 15),
         // Text('Characters',
-        //     style: TextStyle(fontFamily: 'Poppins-Bold')),
+        //     style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
         CharacterCards(carouselData: charactersdata, isManga: true),
         // ReusableCarousel(
         //   title: 'Popular',
@@ -1210,7 +1211,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                             child: Text(
                               data?['name'] ?? 'Loading...',
                               style: TextStyle(
-                                fontFamily: 'Poppins-Bold',
+                                fontFamily: 'BalsamiqSans-Bold',
                                 fontSize: 16,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -1223,7 +1224,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                                 data?['status'] ??
                                 'RELEASING',
                             style: TextStyle(
-                              fontFamily: 'Poppins-Bold',
+                              fontFamily: 'BalsamiqSans-Bold',
                               color: Theme.of(context).colorScheme.primary,
                               letterSpacing: 1,
                             ),
@@ -1255,7 +1256,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                     (checkAvailability(context)).toUpperCase(),
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
-                      fontFamily: 'Poppins-Bold',
+                      fontFamily: 'BalsamiqSans-Bold',
                     ),
                   ),
                 ),
@@ -1410,7 +1411,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                         Text(data?['status'] ?? '??',
                             style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
-                                fontFamily: 'Poppins-SemiBold'))
+                                fontFamily: 'BalsamiqSans-BoldItalic'))
                       ],
                     ),
                   ],
@@ -1477,7 +1478,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
                           (checkAvailability(context)).toUpperCase(),
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
-                            fontFamily: 'Poppins-Bold',
+                            fontFamily: 'BalsamiqSans-Bold',
                           ),
                         ),
                       ),
@@ -1533,7 +1534,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
               ),
               const SizedBox(height: 30),
               Text('Description',
-                  style: TextStyle(fontFamily: 'Poppins-SemiBold')),
+                  style: TextStyle(fontFamily: 'BalsamiqSans-BoldItalic')),
               const SizedBox(
                 height: 5,
               ),
@@ -1555,8 +1556,8 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
               ),
               const SizedBox(height: 20),
               Text('Statistics',
-                  style:
-                      TextStyle(fontFamily: 'Poppins-SemiBold', fontSize: 16)),
+                  style: TextStyle(
+                      fontFamily: 'BalsamiqSans-BoldItalic', fontSize: 16)),
               infoRow(
                   field: 'Rating',
                   value:
@@ -1609,7 +1610,7 @@ class infoRow extends StatelessWidget {
         children: [
           Text(field,
               style: TextStyle(
-                  fontFamily: 'Poppins-Bold',
+                  fontFamily: 'BalsamiqSans-Bold',
                   color: Theme.of(context)
                       .colorScheme
                       .onSurface
@@ -1623,7 +1624,7 @@ class infoRow extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
-                      fontFamily: 'Poppins-Bold')),
+                      fontFamily: 'BalsamiqSans-Bold')),
             ),
           ),
         ],

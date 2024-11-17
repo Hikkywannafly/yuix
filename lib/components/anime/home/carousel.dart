@@ -39,7 +39,7 @@ class Carousel extends StatelessWidget {
                   text: '$title ',
                   style: TextStyle(
                     fontSize: 22,
-                    fontFamily: 'Poppins',
+                    fontFamily: 'BalsamiqSans',
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).colorScheme.primary,
                   ),
@@ -48,7 +48,7 @@ class Carousel extends StatelessWidget {
                   text: span,
                   style: TextStyle(
                     fontSize: 22,
-                    fontFamily: 'Poppins',
+                    fontFamily: 'BalsamiqSans',
                     fontWeight: FontWeight.normal,
                     color: Theme.of(context).textTheme.bodyMedium?.color,
                   ),
@@ -191,7 +191,7 @@ class Carousel extends StatelessWidget {
                                           ? Colors.black
                                           : Colors.white,
                                   fontSize: 14,
-                                  fontFamily: 'Poppins-SemiBold'),
+                                  fontFamily: 'BalsamiqSans-SemiBold'),
                             ),
                           ],
                         ),

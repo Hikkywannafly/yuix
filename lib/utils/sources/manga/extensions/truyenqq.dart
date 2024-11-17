@@ -48,7 +48,7 @@ class TruyenQQ implements SourceBase {
             'title': chapterTitle,
             'path': chapterLink,
             'date': chapterDate,
-            'views': 'Unknown Views',
+            'views': 'Unknown',
             'number': chapterNumber.toString(),
           };
         }).toList();

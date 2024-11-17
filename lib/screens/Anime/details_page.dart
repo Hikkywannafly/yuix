@@ -80,7 +80,7 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage>
     with SingleTickerProviderStateMixin {
   bool usingSaikouLayout =
-      Hive.box('app-data').get('usingSaikouLayout', defaultValue: false);
+      Hive.box('app-data').get('usingSaikouLayout', defaultValue: true);
   dynamic data;
   bool isLoading = true;
   dynamic altdata;
@@ -468,7 +468,7 @@ class _DetailsPageState extends State<DetailsPage>
               'Found: ${fetchedData?['title'] ?? '??'}',
               style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
-                  fontFamily: "Poppins-SemiBold"),
+                  fontFamily: "BalsamiqSans-SemiBold"),
             ),
           ),
           const SizedBox(
@@ -501,7 +501,7 @@ class _DetailsPageState extends State<DetailsPage>
                 value: source['name'],
                 child: Text(
                   source['name']!,
-                  style: TextStyle(fontFamily: 'Poppins-SemiBold'),
+                  style: TextStyle(fontFamily: 'BalsamiqSans-SemiBold'),
                 ),
               );
             }).toList(),
@@ -580,7 +580,7 @@ class _DetailsPageState extends State<DetailsPage>
                   children: [
                     Text('Wrong Title?',
                         style: TextStyle(
-                          fontFamily: 'Poppins-Bold',
+                          fontFamily: 'BalsamiqSans-Bold',
                         )),
                     Positioned(
                       bottom: 0,
@@ -600,7 +600,7 @@ class _DetailsPageState extends State<DetailsPage>
             children: [
               Text('Episodes',
                   style:
-                      TextStyle(fontSize: 18, fontFamily: 'Poppins-SemiBold')),
+                      TextStyle(fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold')),
               Row(
                 children: [
                   IconButton(
@@ -667,7 +667,7 @@ class _DetailsPageState extends State<DetailsPage>
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.secondary,
                           fontSize: 16,
-                          fontFamily: 'Poppins-SemiBold'),
+                          fontFamily: 'BalsamiqSans-SemiBold'),
                     ),
                   ),
                 ],
@@ -828,7 +828,7 @@ class _DetailsPageState extends State<DetailsPage>
                         children: [
                           Text('USE API',
                               style: TextStyle(
-                                fontFamily: 'Poppins-SemiBold',
+                                fontFamily: 'BalsamiqSans-SemiBold',
                                 fontSize: 16,
                               )),
                           const SizedBox(width: 5),
@@ -965,7 +965,7 @@ class _DetailsPageState extends State<DetailsPage>
                       (checkAvailability(context)).toUpperCase(),
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
-                        fontFamily: 'Poppins-Bold',
+                        fontFamily: 'BalsamiqSans-Bold',
                       ),
                     ),
                   ),
@@ -982,7 +982,7 @@ class _DetailsPageState extends State<DetailsPage>
                           text: "${returnProgress()} ",
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
-                            fontFamily: 'Poppins-Bold',
+                            fontFamily: 'BalsamiqSans-Bold',
                           ),
                         ),
                         TextSpan(text: 'Out of ${data?['totalEpisodes']}')
@@ -1014,7 +1014,7 @@ class _DetailsPageState extends State<DetailsPage>
               infoRow(field: 'Premiered', value: data?['premiered'] ?? '??'),
               infoRow(field: 'Duration', value: '${data?['duration']}'),
               const SizedBox(height: 20),
-              Text('Synopsis', style: TextStyle(fontFamily: 'Poppins-Bold')),
+              Text('Synopsis', style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
               const SizedBox(height: 10),
               Text(description!.toString().length > 250
                   ? '${description!.toString().substring(0, 250)}...'
@@ -1022,7 +1022,7 @@ class _DetailsPageState extends State<DetailsPage>
 
               // Grid Section
               const SizedBox(height: 20),
-              Text('Genres', style: TextStyle(fontFamily: 'Poppins-Bold')),
+              Text('Genres', style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
               Flexible(
                 flex: 0,
                 child: GridView.builder(
@@ -1089,7 +1089,7 @@ class _DetailsPageState extends State<DetailsPage>
                             child: Text(
                               genre.toUpperCase(),
                               style: TextStyle(
-                                fontFamily: 'Poppins-Bold',
+                                fontFamily: 'BalsamiqSans-Bold',
                                 color: Colors.white,
                               ),
                             ),
@@ -1105,7 +1105,7 @@ class _DetailsPageState extends State<DetailsPage>
         ),
         const SizedBox(height: 15),
         // Text('Characters',
-        //     style: TextStyle(fontFamily: 'Poppins-Bold')),
+        //     style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
         CharacterCards(carouselData: charactersdata, isManga: false),
         // ReusableCarousel(
         //   title: 'Popular',
@@ -1199,7 +1199,7 @@ class _DetailsPageState extends State<DetailsPage>
                             child: Text(
                               data?['name'] ?? 'Loading...',
                               style: TextStyle(
-                                fontFamily: 'Poppins-Bold',
+                                fontFamily: 'BalsamiqSans-Bold',
                                 fontSize: 16,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -1212,7 +1212,7 @@ class _DetailsPageState extends State<DetailsPage>
                                 data?['status'] ??
                                 'RELEASING',
                             style: TextStyle(
-                              fontFamily: 'Poppins-Bold',
+                              fontFamily: 'BalsamiqSans-Bold',
                               color: Theme.of(context).colorScheme.primary,
                               letterSpacing: 1,
                             ),
@@ -1304,7 +1304,7 @@ class _DetailsPageState extends State<DetailsPage>
                           ),
                           labelText: 'Status',
                           labelStyle: const TextStyle(
-                            fontFamily: 'Poppins-Bold',
+                            fontFamily: 'BalsamiqSans-Bold',
                           ),
                         ),
                         child: DropdownButtonHideUnderline(
@@ -1365,7 +1365,7 @@ class _DetailsPageState extends State<DetailsPage>
                                 ),
                                 labelText: 'Progress',
                                 labelStyle: const TextStyle(
-                                  fontFamily: 'Poppins-Bold',
+                                  fontFamily: 'BalsamiqSans-Bold',
                                 ),
                               ),
                               initialValue: watchProgress.toString(),
@@ -1405,7 +1405,7 @@ class _DetailsPageState extends State<DetailsPage>
                               Text(
                                 'Score: ${score.toStringAsFixed(1)}/10',
                                 style: const TextStyle(
-                                  fontFamily: 'Poppins-Bold',
+                                  fontFamily: 'BalsamiqSans-Bold',
                                   fontSize: 16,
                                 ),
                               ),
@@ -1617,7 +1617,7 @@ class _DetailsPageState extends State<DetailsPage>
                         Text(data?['status'] ?? '??',
                             style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
-                                fontFamily: 'Poppins-SemiBold'))
+                                fontFamily: 'BalsamiqSans-SemiBold'))
                       ],
                     ),
                   ],
@@ -1684,14 +1684,14 @@ class _DetailsPageState extends State<DetailsPage>
                       (checkAvailability(context)).toUpperCase(),
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
-                        fontFamily: 'Poppins-Bold',
+                        fontFamily: 'BalsamiqSans-Bold',
                       ),
                     ),
                   ),
                 ),
               const SizedBox(height: 30),
               Text('Description',
-                  style: TextStyle(fontFamily: 'Poppins-SemiBold')),
+                  style: TextStyle(fontFamily: 'BalsamiqSans-SemiBold')),
               const SizedBox(
                 height: 5,
               ),
@@ -1714,7 +1714,7 @@ class _DetailsPageState extends State<DetailsPage>
               const SizedBox(height: 20),
               Text('Statistics',
                   style:
-                      TextStyle(fontFamily: 'Poppins-SemiBold', fontSize: 16)),
+                      TextStyle(fontFamily: 'BalsamiqSans-SemiBold', fontSize: 16)),
               infoRow(
                   field: 'Rating',
                   value:
@@ -1769,7 +1769,7 @@ class infoRow extends StatelessWidget {
         children: [
           Text(field,
               style: TextStyle(
-                  fontFamily: 'Poppins-Bold',
+                  fontFamily: 'BalsamiqSans-Bold',
                   color: Theme.of(context)
                       .colorScheme
                       .onSurface
@@ -1783,7 +1783,7 @@ class infoRow extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
-                      fontFamily: 'Poppins-Bold')),
+                      fontFamily: 'BalsamiqSans-Bold')),
             ),
           ),
         ],
