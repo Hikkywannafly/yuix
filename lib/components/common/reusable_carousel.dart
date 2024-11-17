@@ -197,7 +197,7 @@ class ReusableCarousel extends StatelessWidget {
                                         Text(
                                           extraData,
                                           style: TextStyle(
-                                              fontSize: 11,
+                                              fontSize: 13,
                                               fontFamily: 'BalsamiqSans-Bold',
                                               color: Theme.of(context)
                                                   .colorScheme
@@ -226,7 +226,7 @@ class ReusableCarousel extends StatelessWidget {
                                       extraData,
                                       style: TextStyle(
                                           fontFamily: 'BalsamiqSans-Bold',
-                                          fontSize: 11,
+                                          fontSize: 13,
                                           color: Theme.of(context)
                                               .colorScheme
                                               .inverseSurface),
@@ -264,7 +264,7 @@ class ReusableCarousel extends StatelessWidget {
                                   color: Theme.of(context)
                                       .colorScheme
                                       .inverseSurface,
-                                  fontSize: usingSaikouCards ? 10 : 13,
+                                  fontSize: usingSaikouCards ? 13 : 15,
                                   fontWeight: FontWeight.bold,
                                   shadows: [
                                     Shadow(

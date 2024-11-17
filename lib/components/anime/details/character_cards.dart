@@ -146,7 +146,7 @@ class CharacterCards extends StatelessWidget {
                           children: [
                             Text(
                               title.toString(),
-                              style: const TextStyle(fontSize: 12),
+                              style: const TextStyle(fontSize: 14),
                               textAlign: TextAlign.left,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,

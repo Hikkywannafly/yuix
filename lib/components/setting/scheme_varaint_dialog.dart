@@ -4,7 +4,8 @@ class SchemeVariantDialog extends StatefulWidget {
   final String selectedVariant;
   final Function(String) onVariantSelected;
 
-  const SchemeVariantDialog({super.key, 
+  const SchemeVariantDialog({
+    super.key,
     required this.selectedVariant,
     required this.onVariantSelected,
   });
@@ -51,8 +52,7 @@ class _SchemeVariantDialogState extends State<SchemeVariantDialog> {
         ),
         TextButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.onPrimaryFixed
-          ),
+              backgroundColor: Theme.of(context).colorScheme.onPrimaryFixed),
           onPressed: () {
             widget.onVariantSelected(_currentVariant);
             Navigator.of(context).pop();

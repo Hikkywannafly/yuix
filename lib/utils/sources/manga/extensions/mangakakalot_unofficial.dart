@@ -150,7 +150,7 @@ class MangaKakalotUnofficial implements SourceBase {
           'images': images,
           'totalImages': index,
         };
-        print(assets.toString());
+    
         return assets;
       } else {
         log('Failed to load chapter details, status code: ${response.statusCode}');

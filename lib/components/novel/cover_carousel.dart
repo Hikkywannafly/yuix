@@ -145,7 +145,7 @@ class _CovercarouselState extends State<Covercarousel> {
                                 .trim() ??
                             '',
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 14,
                           color: ColorScheme.inverseSurface.withOpacity(0.7),
                         ),
                         overflow: TextOverflow.ellipsis,

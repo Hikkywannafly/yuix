@@ -72,7 +72,7 @@ class ChapterList extends StatelessWidget {
                           Text(
                             manga['date'].toString(),
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 14,
                               color: Colors.grey[400],
                             ),
                           ),

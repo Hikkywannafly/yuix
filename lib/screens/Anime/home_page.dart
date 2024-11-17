@@ -71,7 +71,6 @@ class _AnimeHomePageState extends State<AnimeHomePage> {
       body: Consumer<AniListProvider>(
         builder: (context, aniListProvider, child) {
           final userData = aniListProvider.userData;
-
           final baseAnimeData =
               userData?['data'] ?? fallbackAnilistData?['data'];
           final spotlightAnimes =

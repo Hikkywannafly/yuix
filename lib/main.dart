@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/hiveData/appData/database.dart';
+import 'package:yuix/hiveData/locale_provider.dart';
 import 'package:yuix/routers/route.dart';
 import 'package:yuix/screens/Novel/home_page.dart';
 import 'package:yuix/hiveData/themeData/theme_provider.dart';
@@ -8,6 +9,7 @@ import 'package:yuix/screens/Anime/home_page.dart';
 import 'package:yuix/screens/Manga/home_page.dart';
 import 'package:yuix/screens/home_page.dart';
 import 'package:yuix/screens/user/settings.dart';
+import 'package:yuix/utils/i18n.dart';
 import 'package:yuix/utils/sources/anime/handler/sources_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +37,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => AppData()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => LocaleProvider()),
         ChangeNotifierProvider(create: (_) => SourcesHandler()),
         ChangeNotifierProvider(
             create: (_) => AniListProvider()..tryAutoLogin()),
@@ -89,10 +92,12 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final localeProvider = Provider.of<LocaleProvider>(context);
     final box = Hive.box('app-data');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeProvider.selectedTheme,
+      locale: localeProvider.locale,
       home: Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
@@ -138,6 +143,8 @@ class _MainAppState extends State<MainApp> {
           },
         ),
       ),
+      localizationsDelegates: I18nUtil.getLocalizationDelegates(),
+      supportedLocales: I18nUtil.getSupportedLocales(),
       onGenerateRoute: AppRouter.generateRoute,
     );
   }

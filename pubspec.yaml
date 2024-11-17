@@ -56,8 +56,7 @@ dependencies:
   flutter_animate: ^4.5.0
   js_unpack: ^1.0.4
   permission_handler: ^11.3.1
-  rename_app: ^1.6.1
-  i18n_extension: ^13.0.2
+  flutter_i18n: ^0.36.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,20 +68,21 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/i18n/
     # - .env
 
 fonts:
-  - family: Poppins
-    fonts:
-      - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+  # - family: Poppins
+  #   fonts:
+  #     - asset: assets/fonts/Poppins/Poppins-Regular.ttf
 
-  - family: Poppins-SemiBold
-    fonts:
-      - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+  # - family: Poppins-SemiBold
+  #   fonts:
+  #     - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
 
-  - family: Poppins-Bold
-    fonts:
-      - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+  # - family: Poppins-Bold
+  #   fonts:
+  #     - asset: assets/fonts/Poppins/Poppins-Bold.ttf
 
   - family: BalsamiqSans
     fonts:

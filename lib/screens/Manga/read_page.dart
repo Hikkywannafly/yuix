@@ -176,19 +176,17 @@ class _ReadingPageState extends State<ReadingPage> {
   }
 
   Widget _buildLayoutContent() {
+    final String baseUrl = mangaData['source'];
     switch (currentLayout) {
       case 'Webtoon':
         return ListView.builder(
           controller: _scrollController,
           itemCount: chapterImages!.length,
           itemBuilder: (context, index) {
-            return
-                // Text(
-                //     '$proxyUrl${mangaData['source']}&src=${chapterImages![index]['image']}');
-                CachedNetworkImage(
+            return CachedNetworkImage(
               imageUrl:
-                  'https://yuix-proxy.hikky.workers.dev/proxy?url=${mangaData['source']}&src=${chapterImages![index]['image']}',
-              // httpHeaders: const {'Referer': 'https://chapmanganato.to/'},
+                  'https://yuix-proxy.hikky.workers.dev/proxy?url=${baseUrl}&src=${chapterImages![index]['image']}',
+              httpHeaders: {'Referer': '$baseUrl'},
               fit: BoxFit.cover,
               placeholder: (context, progress) => SizedBox(
                 height: MediaQuery.of(context).size.height,
@@ -216,7 +214,9 @@ class _ReadingPageState extends State<ReadingPage> {
           },
           itemBuilder: (context, index) {
             return CachedNetworkImage(
-              imageUrl: chapterImages![index]['image'],
+              imageUrl:
+                  'https://yuix-proxy.hikky.workers.dev/proxy?url=${baseUrl}&src=${chapterImages![index]['image']}',
+              httpHeaders: {'Referer': '$baseUrl'},
               fit: BoxFit.contain,
               placeholder: (context, progress) => const Center(
                 child: CircularProgressIndicator(),
@@ -320,8 +320,8 @@ class _ReadingPageState extends State<ReadingPage> {
                 child: Center(
                   child: Text(
                     'Chapters',
-                    style:
-                        TextStyle(fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold'),
+                    style: TextStyle(
+                        fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold'),
                   ),
                 ),
               ),

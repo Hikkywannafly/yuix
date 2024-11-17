@@ -1,0 +1,36 @@
+{
+    "settings":{
+      "title": "Cài đặt",
+      "sources":{
+        "title": "Nguồn",
+        "description": "Chuyển đổi nguồn cho Anime và Manga"
+      },
+      "ui":{
+        "title": "Giao diện",
+        "description": "Thay đổi giao diện UI"
+      },
+      "player":{
+        "title": "Trình phát (Sắp ra mắt)",
+        "description": "Thay đổi cài đặt trình phát video"
+      },
+      "theme":{
+        "title": "Chủ đề",
+        "description": "Thay đổi chủ đề của ứng dụng"
+      },
+      "language":{
+        "title": "Ngôn ngữ",
+        "description": "Thay đổi ngôn ngữ của ứng dụng"
+      }
+    },
+    "sources": "Nguồn",
+    "switch_sources_description": "Chuyển đổi nguồn cho Anime và Manga",
+    "ui": "Giao diện",
+    "ui_description": "Thay đổi giao diện UI",
+    "player": "Trình phát (Sắp ra mắt)",
+    "player_description": "Thay đổi cài đặt trình phát video",
+    "theme": "Chủ đề",
+    "theme_description": "Thay đổi chủ đề của ứng dụng",
+    "language": "Ngôn ngữ",
+    "language_description": "Thay đổi ngôn ngữ của ứng dụng",
+    "choose_your_language": "Chọn ngôn ngữ của bạn:"
+  }

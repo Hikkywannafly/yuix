@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:yuix/utils/i18n.dart';
 
 class CustomTile extends StatelessWidget {
   final IconData icon;
@@ -30,7 +31,7 @@ class CustomTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    I18nUtil.translate(context, '$title'),
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -39,7 +40,7 @@ class CustomTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    description,
+                    I18nUtil.translate(context, '$description'),
                     style: TextStyle(
                       fontSize: 14,
                       color: Theme.of(context)

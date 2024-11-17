@@ -164,7 +164,6 @@ class TruyenQQ implements SourceBase {
           'totalImages': index,
         };
 
-        print(assets.toString());
         return assets;
       } else {
         log('Failed to load chapter details, status code: ${response.statusCode}');
@@ -180,8 +179,6 @@ class TruyenQQ implements SourceBase {
   Future<dynamic> mapToAnilist(String query) async {
     final mangaList = await fetchMangaSearchResults(query);
     final bestMatchId = findBestMatch(query, mangaList);
-    final data = mangaList[0];
-    print('Best Match ID: $data');
     if (bestMatchId.isNotEmpty) {
       return await fetchMangaChapters(bestMatchId);
     } else {

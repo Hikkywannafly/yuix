@@ -1,0 +1,37 @@
+{
+  "settings":{
+    "title": "Settings",
+    "sources":{
+      "title": "Sources",
+      "description": "Switch Sources for Animes and Manga"
+    },
+    "ui":{
+      "title": "UI",
+      "description": "Play Around with UI Tweaks"
+    },
+    "player":{
+      "title": "Player (Soon)",
+      "description": "Change Video Player Settings"
+    },
+    "theme":{
+      "title": "Theme",
+      "description": "Change the app theme"
+    },
+    "language":{
+      "title": "Language",
+      "description": "Change the app language"
+    }
+    
+  },
+    "sources": "Sources",
+    "switch_sources_description": "Switch Sources for Animes and Manga",
+    "ui": "UI",
+    "ui_description": "Play Around with UI Tweaks",
+    "player": "Player (Soon)",
+    "player_description": "Change Video Player Settings",
+    "theme": "Theme",
+    "theme_description": "Change the app theme",
+    "language": "Language",
+    "language_description": "Change the app language",
+    "choose_your_language": "Choose your language:"
+  }

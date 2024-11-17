@@ -178,7 +178,7 @@ class _ToggleBarState extends State<ToggleBar> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 14,
                                 color: Theme.of(context)
                                             .colorScheme
                                             .inverseSurface ==
@@ -353,7 +353,7 @@ class _ToggleBarState extends State<ToggleBar> {
               child: Text(
                 '${widget.currentLayout == 'Webtoon' ? _currentPage : widget.pageNumber?.floor()} / ${widget.totalImages}',
                 style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 14,
                     color: Theme.of(context).colorScheme.inverseSurface ==
                             Theme.of(context).colorScheme.onPrimaryFixedVariant
                         ? Colors.black

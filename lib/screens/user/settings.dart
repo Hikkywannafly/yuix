@@ -1,14 +1,15 @@
 import 'package:yuix/components/common/custom_tile.dart';
+import 'package:yuix/components/setting/choose_language_dialog.dart';
 // import 'package:yuix/screens/user/settings/settings_about.dart';
 import 'package:yuix/screens/user/settings/settings_layout.dart';
 import 'package:yuix/screens/user/settings/settings_player.dart';
 import 'package:yuix/screens/user/settings/settings_theme.dart';
 import 'package:yuix/screens/user/settings/settings_testing.dart';
 import 'package:yuix/screens/user/settings/settings_sources.dart';
-// import 'package:yuix/utils/downloader/downloader.dart';
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:yuix/utils/i18n.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -40,18 +41,18 @@ class SettingsPage extends StatelessWidget {
         children: [
           const SizedBox(height: 60),
           const SizedBox(height: 30),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              'Settings',
+              I18nUtil.translate(context, 'settings.title'),
               style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(height: 30),
           CustomTile(
             icon: Icons.source,
-            title: 'Sources',
-            description: 'Switch Sources for Animes and Manga',
+            title: 'settings.sources.title',
+            description: 'settings.sources.description',
             onTap: () {
               Navigator.push(
                   context, _createSlideRoute(const SourcesSettingPage()));
@@ -59,16 +60,16 @@ class SettingsPage extends StatelessWidget {
           ),
           CustomTile(
             icon: HugeIcons.strokeRoundedPaintBrush02,
-            title: 'UI',
-            description: 'Play Around with UI Tweaks',
+            title: 'settings.ui.title',
+            description: 'settings.ui.description',
             onTap: () {
               Navigator.push(context, _createSlideRoute(const LayoutPage()));
             },
           ),
           CustomTile(
             icon: Iconsax.play5,
-            title: 'Player (Soon)',
-            description: 'Change Video Player Settings',
+            title: 'settings.player.title',
+            description: 'settings.player.description',
             onTap: () {
               Navigator.push(
                   context, _createSlideRoute(const VideoPlayerSettings()));
@@ -76,26 +77,23 @@ class SettingsPage extends StatelessWidget {
           ),
           CustomTile(
             icon: Iconsax.paintbucket5,
-            title: 'Theme',
-            description: 'Change the app theme',
+            title: 'settings.theme.title',
+            description: 'settings.theme.description',
             onTap: () {
               Navigator.push(context, _createSlideRoute(const ThemePage()));
             },
           ),
           CustomTile(
             icon: Icons.language,
-            title: 'Language (Soon)',
-            description: 'Change the app language',
-            onTap: () {},
+            title: 'settings.language.title',
+            description: 'settings.language.description',
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => ChooseLanguageDialog(),
+              );
+            },
           ),
-          // CustomTile(
-          //   icon: Iconsax.info_circle5,
-          //   title: 'About',
-          //   description: 'About this app',
-          //   onTap: () {
-          //     Navigator.push(context, _createSlideRoute(const AboutPage()));
-          //   },
-          // ),
           CustomTile(
             icon: Iconsax.info_circle5,
             title: 'Fetch Data',
