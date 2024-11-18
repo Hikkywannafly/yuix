@@ -16,24 +16,22 @@ Manga Light Novel reading application for iOS and Android with the simplest and 
 - **✨ Sleek Material UI**: Experience a modern, smooth, and polished interface.
 regularly.
 - **📊 AniList Tracking**: Integrate with your AniList account to track your anime and manga progress.
-- 
 
----
 
-## Tech stack
+##💫 Tech stack
 
--   Flutter 
--   Provider
--   Hive
--   Firebase
--   build_runner
--  image_picker 
--  path_provider
--  smooth_page_indicator
--  wakelock_plus 
--  dynamic_color
--  ionicons 
--  video_player
+- Flutter 
+- Provider
+- Hive
+- Firebase
+- build_runner
+- image_picker 
+- path_provider
+- smooth_page_indicator
+- wakelock_plus 
+- dynamic_color
+- ionicons 
+- video_player
 
 
 ## 📱 **Screenshots**
