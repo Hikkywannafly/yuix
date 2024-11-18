@@ -18,7 +18,7 @@ regularly.
 - **📊 AniList Tracking**: Integrate with your AniList account to track your anime and manga progress.
 
 
-##💫 Tech stack
+## 💫 Tech stack
 
 - Flutter 
 - Provider
