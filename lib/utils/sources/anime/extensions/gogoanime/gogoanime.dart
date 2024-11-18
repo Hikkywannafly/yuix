@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as html;
 
 class GogoAnime implements SourceBase {
-  final String _baseUrl = "https://ww5.gogoanimes.fi";
+  final String _baseUrl = "https://ww17.gogoanimes.fi/";
   final String _ajaxUrl = "https://ajax.gogocdn.net/ajax";
 
   @override

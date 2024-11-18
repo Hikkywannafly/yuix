@@ -231,20 +231,19 @@ class _HomePageState extends State<HomePage> {
                           backgroundImage:
                               'https://images3.alphacoders.com/128/thumb-1920-1283303.png'),
                       const SizedBox(height: 20),
-                      if (anilistProvider.userData?['data'] != null)
+                      if (isLoggedIn)
                         anilistCarousel(
                           title: 'Currently Watching',
                           carouselData: animeList,
                           tag: 'currently-watching',
-                        )
-                      else
-                        loader(),
-                      anilistCarousel(
-                        title: 'Currently Reading',
-                        carouselData: mangaList,
-                        tag: 'currently-reading',
-                        isManga: true,
-                      ),
+                        ),
+                      if (isLoggedIn)
+                        anilistCarousel(
+                          title: 'Currently Reading',
+                          carouselData: mangaList,
+                          tag: 'currently-reading',
+                          isManga: true,
+                        ),
                       if (!isLoggedIn)
                         MangaHomepageCarousel(
                           title: 'Currently Reading',
@@ -292,7 +291,7 @@ class _HomePageState extends State<HomePage> {
     showGeneralDialog(
       context: context,
       barrierDismissible: true,
-      barrierLabel: "Welcome To AnymeX",
+      barrierLabel: "Welcome To YuiX",
       pageBuilder: (context, animation1, animation2) {
         return StatefulBuilder(
           builder: (context, setState) {
@@ -338,8 +337,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: const Center(
                           child: Text(
-                            'Welcome To AnymeX',
-                            style: TextStyle(fontFamily: 'BalsamiqSans-SemiBold'),
+                            'Welcome To YuiX',
+                            style:
+                                TextStyle(fontFamily: 'BalsamiqSans-SemiBold'),
                           ),
                         ),
                       ),

@@ -599,8 +599,8 @@ class _DetailsPageState extends State<DetailsPage>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Episodes',
-                  style:
-                      TextStyle(fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold')),
+                  style: TextStyle(
+                      fontSize: 18, fontFamily: 'BalsamiqSans-SemiBold')),
               Row(
                 children: [
                   IconButton(
@@ -1014,7 +1014,8 @@ class _DetailsPageState extends State<DetailsPage>
               infoRow(field: 'Premiered', value: data?['premiered'] ?? '??'),
               infoRow(field: 'Duration', value: '${data?['duration']}'),
               const SizedBox(height: 20),
-              Text('Synopsis', style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
+              Text('Synopsis',
+                  style: TextStyle(fontFamily: 'BalsamiqSans-Bold')),
               const SizedBox(height: 10),
               Text(description!.toString().length > 250
                   ? '${description!.toString().substring(0, 250)}...'
@@ -1713,8 +1714,8 @@ class _DetailsPageState extends State<DetailsPage>
               ),
               const SizedBox(height: 20),
               Text('Statistics',
-                  style:
-                      TextStyle(fontFamily: 'BalsamiqSans-SemiBold', fontSize: 16)),
+                  style: TextStyle(
+                      fontFamily: 'BalsamiqSans-SemiBold', fontSize: 16)),
               infoRow(
                   field: 'Rating',
                   value:
