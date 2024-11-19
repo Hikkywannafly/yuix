@@ -155,7 +155,7 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
     required bool? isLoading,
   }) {
     return SizedBox(
-      height: 300,
+      height: 455,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: [
@@ -187,14 +187,14 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
             child: Row(
               children: [
                 Hero(
-                  tag: tag!,
+                  tag: widget.tag!,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(12),
                     child: CachedNetworkImage(
-                      imageUrl: poster!,
+                      height: 170,
+                      width: 120,
+                      imageUrl: widget.posterUrl!,
                       fit: BoxFit.cover,
-                      width: 70,
-                      height: 100,
                     ),
                   ),
                 ),
@@ -244,6 +244,24 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
                   ],
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            top: 30,
+            right: 20,
+            child: Material(
+              borderOnForeground: false,
+              color: Colors.transparent,
+              child: IconButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      Theme.of(context).colorScheme.surfaceContainer,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.close),
+              ),
             ),
           ),
         ],
@@ -346,8 +364,8 @@ class _NovelDetailsPageState extends State<NovelDetailsPage>
               ),
               const SizedBox(height: 20),
               Text('Statistics',
-                  style:
-                      TextStyle(fontFamily: 'BalsamiqSans-SemiBold', fontSize: 16)),
+                  style: TextStyle(
+                      fontFamily: 'BalsamiqSans-SemiBold', fontSize: 16)),
               infoRow(field: 'Author', value: data['authors'].toString()),
               infoRow(field: 'Rating', value: data?['rating'] ?? '??'),
               infoRow(field: 'Total Chapters', value: data['chapters']),

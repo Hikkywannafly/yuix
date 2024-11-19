@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "843181165615",
+    "project_id": "yuix-68908",
+    "storage_bucket": "yuix-68908.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843181165615:android:ed2e6636bce5e91459cada",
+        "android_client_info": {
+          "package_name": "com.anime.yuix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1gU4_dUpxm16z-UEDXAkTDcJzN3FvCBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
