@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:yuix/components/common/IconWithLabel.dart';
+import 'package:yuix/components/common/icon_With_label.dart';
 import 'package:yuix/utils/apiHooks/anilist/anime/search_page.dart';
 import 'package:yuix/screens/anime/details_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';

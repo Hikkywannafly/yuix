@@ -5,6 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:yuix/components/common/switch_tile.dart';
 import 'package:yuix/components/common/switch_tile_stateless.dart';
 import 'package:yuix/utils/apiHooks/api.dart';
+import 'package:yuix/utils/i18n.dart';
 
 class SourcesSettingPage extends StatefulWidget {
   const SourcesSettingPage({super.key});
@@ -56,8 +57,8 @@ class _SourcesSettingPageState extends State<SourcesSettingPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Sources',
+                    Text(
+                      I18nUtil.translate(context, 'settings.title'),
                       style:
                           TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
                     ),

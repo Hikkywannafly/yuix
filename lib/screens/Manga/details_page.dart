@@ -3,7 +3,7 @@
 import 'dart:developer';
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/components/anilistExclusive/wrong_tile_manga.dart';
-import 'package:yuix/components/common/IconWithLabel.dart';
+import 'package:yuix/components/common/icon_With_label.dart';
 import 'package:yuix/components/common/reusable_carousel.dart';
 import 'package:yuix/components/anime/details/character_cards.dart';
 import 'package:yuix/components/manga/chapter_ranges.dart';
@@ -234,7 +234,7 @@ class _MangaDetailsPageState extends State<MangaDetailsPage>
       currentIndex: selectedIndex,
       unselectedItemColor: Colors.white,
       selectedItemColor: Theme.of(context).colorScheme.primary,
-      marginR: EdgeInsets.symmetric(horizontal: 100, vertical: 100),
+      marginR: EdgeInsets.symmetric(horizontal: 100, vertical: 50),
       paddingR: EdgeInsets.symmetric(horizontal: 10),
       backgroundColor: Colors.black.withOpacity(0.3),
       onTap: (index) {

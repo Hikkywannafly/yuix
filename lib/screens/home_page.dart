@@ -442,10 +442,17 @@ class _HomePageState extends State<HomePage> {
                                       onPressed: () {
                                         Hive.box('login-data')
                                             .put('isFirstTime', false);
+
                                         Provider.of<AniListProvider>(context,
                                                 listen: false)
                                             .login(context);
-                                        Navigator.of(context).pop();
+
+                                        // Navigator.of(context).pop();
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             const LoginPage()));
                                       },
                                       label: Text(
                                         'Login via AniList',

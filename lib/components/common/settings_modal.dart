@@ -1,8 +1,8 @@
 import 'package:yuix/auth/auth_provider.dart';
 import 'package:yuix/main.dart';
 import 'package:yuix/screens/downloads/download_page.dart';
+import 'package:yuix/screens/onboarding/login_page.dart';
 import 'package:yuix/screens/user/profile.dart';
-import 'package:yuix/screens/user/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
@@ -52,26 +52,26 @@ class SettingsModal extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(userName),
-                GestureDetector(
-                  onTap: () {
-                    if (isLoggedIn) {
-                      anilistProvider.logout(context);
-                    } else {
-                      anilistProvider.login(context);
-                    }
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => const MainApp()),
-                      (route) => false,
-                    );
-                  },
-                  child: Text(
-                    isLoggedIn ? 'Logout' : 'Login',
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     if (isLoggedIn) {
+                //       anilistProvider.logout(context);
+                //     } else {
+                //       anilistProvider.login(context);
+                //     }
+                //     Navigator.pushAndRemoveUntil(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => const MainApp()),
+                //       (route) => false,
+                //     );
+                //   },
+                //   child: Text(
+                //     isLoggedIn ? 'Logout' : 'Login',
+                //     style: TextStyle(
+                //         color: Theme.of(context).colorScheme.primary,
+                //         fontWeight: FontWeight.bold),
+                //   ),
+                // ),
               ],
             ),
             const Expanded(
@@ -87,16 +87,23 @@ class SettingsModal extends StatelessWidget {
                 icon: const Icon(Iconsax.notification))
           ]),
           const SizedBox(height: 10),
-          // ListTile(
-          //   leading: const Icon(Iconsax.user),
-          //   title: const Text('Login (Not Completed)'),
-          //   onTap: () {
-          //     Navigator.pushReplacement(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => const LoginPage()),
-          //     );
-          //   },
-          // ),
+          if (!isLoggedIn)
+            ListTile(
+              leading: const Icon(Iconsax.login),
+              title: const Text('Login'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+            ),
+          if (isLoggedIn)
+            ListTile(
+              leading: const Icon(Iconsax.logout),
+              title: const Text('Logout'),
+              onTap: () {},
+            ),
           ListTile(
             leading: const Icon(Iconsax.user),
             title: const Text('View Profile'),
@@ -107,7 +114,6 @@ class SettingsModal extends StatelessWidget {
               );
             },
           ),
-
           ListTile(
             leading: const Icon(Iconsax.document_download),
             title: const Text('Downloads'),
@@ -115,17 +121,6 @@ class SettingsModal extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const DownloadPage()),
-              );
-            },
-          ),
-
-          ListTile(
-            leading: const Icon(Iconsax.setting),
-            title: const Text('Settings'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsPage()),
               );
             },
           ),

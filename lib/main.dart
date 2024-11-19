@@ -1,5 +1,7 @@
 import 'dart:developer';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:yuix/auth/auth_provider.dart';
+import 'package:yuix/firebase_options.dart';
 import 'package:yuix/hiveData/appData/database.dart';
 import 'package:yuix/hiveData/locale_provider.dart';
 import 'package:yuix/routers/route.dart';
@@ -27,9 +29,12 @@ void main() async {
   await Hive.openBox('app-data');
   try {
     await dotenv.load(fileName: ".env");
-    log('Env file loaded successfully.');
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    log('Env, firebase file loaded successfully.');
   } catch (e) {
-    log('Error loading env file: $e');
+    log('Error loading env, firebase file: $e');
   }
 
   runApp(

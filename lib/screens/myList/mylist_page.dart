@@ -1,6 +1,6 @@
 import 'dart:math';
 // import 'package:yuix/components/anime/details/episode_list.dart';
-import 'package:yuix/components/common/IconWithLabel.dart';
+import 'package:yuix/components/common/icon_With_label.dart';
 import 'package:yuix/screens/Anime/details_page.dart';
 import 'package:yuix/screens/Manga/details_page.dart';
 // import 'package:yuix/screens/Manga/read_page.dart';

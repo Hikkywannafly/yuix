@@ -5,7 +5,7 @@ import 'package:yuix/utils/sources/anime/handler/sources_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:yuix/components/common/IconWithLabel.dart';
+import 'package:yuix/components/common/icon_With_label.dart';
 import 'package:provider/provider.dart';
 
 const String proxyUrl = '';

@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, non_constant_identifier_names, must_be_immutable, avoid_print, use_build_context_synchronously
 import 'dart:developer';
-import 'package:yuix/components/common/IconWithLabel.dart';
+import 'package:yuix/components/common/icon_With_label.dart';
 import 'package:yuix/components/novel/wong_title.dart';
 import 'package:yuix/screens/Novel/reading_page.dart';
 import 'package:yuix/utils/sources/novel/extensions/novel_buddy.dart';

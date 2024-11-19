@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:yuix/auth/auth_provider.dart';
-import 'package:yuix/components/common/IconWithLabel.dart';
+import 'package:yuix/components/common/icon_with_label.dart';
 import 'package:yuix/components/anilistExclusive/wong_title_dialog.dart';
 import 'package:yuix/components/anime/details/episode_buttons.dart';
 import 'package:yuix/components/anime/details/episode_list.dart';
