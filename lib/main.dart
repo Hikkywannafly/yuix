@@ -25,13 +25,14 @@ import 'package:iconsax/iconsax.dart';
 
 void main() async {
   await Hive.initFlutter();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Hive.openBox('login-data');
   await Hive.openBox('app-data');
   try {
     await dotenv.load(fileName: ".env");
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+
     log('Env, firebase file loaded successfully.');
   } catch (e) {
     log('Error loading env, firebase file: $e');

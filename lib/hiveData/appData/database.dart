@@ -8,9 +8,48 @@ class AppData extends ChangeNotifier {
   dynamic novelList;
   bool? isGrid;
   bool? usingConsumet;
+  String? _username;
+  String? _password;
 
+  String? get username => _username;
+  String? get password => _password;
   AppData() {
     _loadData();
+    _loadLoginData();
+  }
+
+  Future<void> _loadLoginData() async {
+    try {
+      var box = await Hive.openBox('login-data');
+      _username = box.get('userInfo')?[0];
+      _password = box.get('userInfo')?[1];
+      notifyListeners();
+    } catch (e) {
+      log('Failed to load login data from Hive: $e');
+    }
+  }
+
+  Future<void> saveLoginData(String username, String password) async {
+    try {
+      var box = await Hive.openBox('login-data');
+      box.put('userInfo', [username, password]);
+      _username = username;
+      _password = password;
+      notifyListeners();
+    } catch (e) {
+      log('Failed to save login data to Hive: $e');
+    }
+  }
+
+  bool get isLoggedIn => _username != null && _password != null;
+
+  // Logout
+  Future<void> logout() async {
+    var box = await Hive.openBox('login-data');
+    await box.delete('userInfo');
+    _username = null;
+    _password = null;
+    notifyListeners();
   }
 
   Future<void> _loadData() async {

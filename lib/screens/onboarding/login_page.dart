@@ -1,13 +1,10 @@
-import 'dart:io';
 import 'package:yuix/main.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:iconly/iconly.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' as path;
 import 'package:yuix/screens/onboarding/register_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,9 +14,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController userName = TextEditingController();
-  final TextEditingController passWord = TextEditingController();
-  File? _avatarImage;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +38,9 @@ class _LoginPageState extends State<LoginPage> {
                     height: 200, width: 200),
               ),
               const SizedBox(height: 20),
-              _buildTextField(userName, 'Username', IconlyBold.profile),
+              _buildTextField(emailController, 'Email', Icons.email),
               const SizedBox(height: 10),
-              _buildTextField(passWord, 'Password', IconlyBold.lock,
+              _buildTextField(passwordController, 'Password', Icons.lock,
                   obscureText: true),
               const SizedBox(height: 10),
               Row(
@@ -72,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: _saveUserData,
+                  onPressed: _loginWithEmail,
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         Theme.of(context).colorScheme.onPrimaryFixedVariant,
@@ -89,20 +86,9 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                  child: Text(
-                    'Submit',
+                  child: const Text(
+                    'Login',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.inverseSurface ==
-                              Theme.of(context)
-                                  .colorScheme
-                                  .onPrimaryFixedVariant
-                          ? Colors.black
-                          : Theme.of(context)
-                                      .colorScheme
-                                      .onPrimaryFixedVariant ==
-                                  const Color(0xffe2e2e2)
-                              ? Colors.black
-                              : Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -164,13 +150,7 @@ class _LoginPageState extends State<LoginPage> {
       label: Text(text),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.black,
-        foregroundColor: Theme.of(context).colorScheme.inverseSurface ==
-                Theme.of(context).colorScheme.onPrimaryFixedVariant
-            ? Colors.black
-            : Theme.of(context).colorScheme.onPrimaryFixedVariant ==
-                    const Color(0xffe2e2e2)
-                ? Colors.black
-                : Colors.white,
+        foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -179,38 +159,65 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Future<void> _pickImage() async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
-      final directory = await getApplicationDocumentsDirectory();
-      final fileName = path.basename(pickedFile.path);
-      final savedImage =
-          await File(pickedFile.path).copy('${directory.path}/$fileName');
-
-      setState(() {
-        _avatarImage = savedImage;
-      });
+  Future<void> _loginWithEmail() async {
+    try {
+      final userCredential = await _auth.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      if (userCredential.user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const MainApp()),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to login: $e')),
+      );
     }
   }
 
-  Future<void> _saveUserData() async {
-    var box = Hive.box('login-data');
-    box.put('userInfo', [
-      userName.text,
-      passWord.text,
-      _avatarImage?.path,
-    ]);
-    box.put('isFirstTime', false);
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => const MainApp()),
-      (route) => false,
-    );
+  Future<void> _loginWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser!.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await _auth.signInWithCredential(credential);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MainApp()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to login with Google: $e')),
+      );
+    }
   }
 
-  void _loginWithGoogle() {}
+  Future<void> _loginWithFacebook() async {
+    try {
+      final LoginResult result = await FacebookAuth.instance.login();
+      if (result.status == LoginStatus.success) {
+        final OAuthCredential facebookAuthCredential =
+            FacebookAuthProvider.credential(result.accessToken!.token);
 
-  void _loginWithFacebook() {}
+        await _auth.signInWithCredential(facebookAuthCredential);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const MainApp()),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to login with Facebook: $e')),
+      );
+    }
+  }
 }

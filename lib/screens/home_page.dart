@@ -446,13 +446,6 @@ class _HomePageState extends State<HomePage> {
                                         Provider.of<AniListProvider>(context,
                                                 listen: false)
                                             .login(context);
-
-                                        // Navigator.of(context).pop();
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (context) =>
-                                        //             const LoginPage()));
                                       },
                                       label: Text(
                                         'Login via AniList',

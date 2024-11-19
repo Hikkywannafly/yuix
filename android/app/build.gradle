@@ -38,8 +38,9 @@ android {
 
     defaultConfig {
         applicationId = "com.anime.yuix"
-        minSdk = flutter.minSdkVersion
+        // minSdk = flutter.minSdkVersion
         // targetSdk = flutter.targetSdkVersion
+        minSdkVersion 23     
         targetSdkVersion 33
         versionCode = flutterVersionCode.toInteger()
         versionName = "2.7.1"

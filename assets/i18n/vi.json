@@ -3,7 +3,12 @@
       "title": "Cài đặt",
       "sources":{
         "title": "Nguồn",
-        "description": "Chuyển đổi nguồn cho Anime và Manga"
+        "description": "Chuyển đổi nguồn cho Anime và Manga",
+       "romaji": 
+           {
+            "title": "Romaji",
+            "description": "Chuyển đổi giữa tên tiếng Nhật và Romaji"
+          }
       },
       "ui":{
         "title": "Giao diện",
@@ -21,6 +26,12 @@
         "title": "Ngôn ngữ",
         "description": "Thay đổi ngôn ngữ của ứng dụng"
       }
+    },
+    "home_page":{
+    "introduction": "Chào {username}, bạn đang làm gì?",
+    "introduction2": "Tìm phim yêu thích",
+    "currently_reading": "Đang đọc",
+    "currently_watching": "Đang xem"
     },
     "sources": "Nguồn",
     "switch_sources_description": "Chuyển đổi nguồn cho Anime và Manga",

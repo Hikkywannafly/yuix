@@ -1,9 +1,10 @@
-import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yuix/screens/onboarding/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -19,6 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passWord = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
   File? _avatarImage;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -177,18 +179,25 @@ class _RegisterPageState extends State<RegisterPage> {
       return;
     }
 
-    var box = Hive.box('login-data');
-    box.put('userInfo', [
-      email.text,
-      userName.text,
-      passWord.text,
-      _avatarImage?.path,
-    ]);
-    box.put('isFirstTime', false);
-    // Navigator.pushAndRemoveUntil(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => const MainApp()),
-    //   (route) => false,
-    // );
+    try {
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: email.text,
+        password: passWord.text,
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Registration Successful!')),
+      );
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to register: $e')),
+      );
+    }
   }
 }

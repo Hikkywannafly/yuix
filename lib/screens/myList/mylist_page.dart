@@ -542,7 +542,12 @@ class MyListState extends State<MyList> with SingleTickerProviderStateMixin {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
             [
           SliverAppBar(
-            leading: const Icon(Icons.arrow_back_ios_new),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios_new),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
             expandedHeight: 150,
             floating: true,
             pinned: true,

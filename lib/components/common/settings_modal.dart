@@ -1,4 +1,6 @@
+import 'package:hive/hive.dart';
 import 'package:yuix/auth/auth_provider.dart';
+import 'package:yuix/hiveData/appData/database.dart';
 import 'package:yuix/main.dart';
 import 'package:yuix/screens/downloads/download_page.dart';
 import 'package:yuix/screens/onboarding/login_page.dart';
@@ -14,19 +16,19 @@ class SettingsModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var box = Hive.box('login-data');
-    final anilistProvider = Provider.of<AniListProvider>(context);
-    // final userInfo =
-    //     box.get('userInfo', defaultValue: ['Guest', 'Guest', 'null']);
-    // final userName = userInfo?[0] ?? 'Guest';
-    // final avatarImagePath = userInfo?[2] ?? 'null';
-    // final isLoggedIn = userName != 'Guest';
+    var box = Hive.box('login-data');
+    // final anilistProvider = Provider.of<AniListProvider>(context);
+    final userInfo =
+        box.get('userInfo', defaultValue: ['Guest', 'Guest', 'null']);
+    final userName = userInfo?[0] ?? 'Guest';
+    final avatarImagePath = userInfo?[2] ?? 'null';
+    final isLoggedIn = userName != 'Guest';
     // final hasAvatarImage = avatarImagePath != 'null';
 
-    final userName = anilistProvider.userData?['user']?['name'] ?? 'Guest';
-    final avatarImagePath =
-        anilistProvider.userData?['user']?['avatar']?['large'];
-    final isLoggedIn = anilistProvider.userData?['user']?['name'] != null;
+    // final userName = anilistProvider.userData?['user']?['name'] ?? 'Guest';
+    // final avatarImagePath =
+    //     anilistProvider.userData?['user']?['avatar']?['large'];
+    // final isLoggedIn = anilistProvider.userData?['user']?['name'] != null;
     return Container(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -98,12 +100,12 @@ class SettingsModal extends StatelessWidget {
                 );
               },
             ),
-          if (isLoggedIn)
-            ListTile(
-              leading: const Icon(Iconsax.logout),
-              title: const Text('Logout'),
-              onTap: () {},
-            ),
+          // if (isLoggedIn)
+          //   ListTile(
+          //     leading: const Icon(Iconsax.logout),
+          //     title: const Text('Logout'),
+          //     onTap: () {},
+          //   ),
           ListTile(
             leading: const Icon(Iconsax.user),
             title: const Text('View Profile'),
@@ -128,9 +130,11 @@ class SettingsModal extends StatelessWidget {
             ListTile(
               leading: const Icon(Iconsax.logout),
               title: const Text('Logout'),
-              onTap: () {
-                Provider.of<AniListProvider>(context, listen: false)
-                    .logout(context);
+              onTap: () async {
+                final appData = Provider.of<AppData>(context, listen: false);
+
+                await appData.logout();
+
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const MainApp()),
