@@ -338,7 +338,8 @@ class _DetailsPageState extends State<DetailsPage>
       currentIndex: selectedIndex,
       unselectedItemColor: Colors.white,
       selectedItemColor: Theme.of(context).colorScheme.primary,
-      marginR: EdgeInsets.symmetric(horizontal: 100, vertical: 50),
+      marginR: EdgeInsets.symmetric(
+          horizontal: 100, vertical: getProperSize(tabBarSizeVertical)),
       paddingR: EdgeInsets.symmetric(horizontal: 10),
       backgroundColor: Colors.black.withOpacity(0.3),
       onTap: (index) {

@@ -233,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(height: 20),
                       if (isLoggedIn)
                         anilistCarousel(
-                          title: 'Currently Watching',
+                          title: 'home_page.currently_watching',
                           carouselData: animeList,
                           tag: 'currently-watching',
                         ),
@@ -448,7 +448,7 @@ class _HomePageState extends State<HomePage> {
                                             .login(context);
                                       },
                                       label: Text(
-                                        'Login via AniList',
+                                        'Login',
                                         style: TextStyle(
                                             fontFamily: 'BalsamiqSans-SemiBold',
                                             color: Theme.of(context)

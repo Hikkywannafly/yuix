@@ -4,7 +4,6 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:yuix/screens/onboarding/login_page.dart';
 
 class RegisterPage extends StatefulWidget {

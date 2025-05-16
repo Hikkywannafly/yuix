@@ -13,11 +13,11 @@ class LayoutPage extends StatefulWidget {
 
 class _LayoutPageState extends State<LayoutPage> {
   bool compactCard =
-      Hive.box('app-data').get('usingCompactCards', defaultValue: false);
+      Hive.box('app-data').get('usingCompactCards', defaultValue: true);
   bool saikouCards =
       Hive.box('app-data').get('usingSaikouCards', defaultValue: true);
   bool usingSaikouLayout =
-      Hive.box('app-data').get('usingSaikouLayout', defaultValue: false);
+      Hive.box('app-data').get('usingSaikouLayout', defaultValue: true);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

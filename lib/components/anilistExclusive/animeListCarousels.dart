@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transformable_list_view/transformable_list_view.dart';
+import 'package:yuix/utils/i18n.dart';
 
 class anilistCarousel extends StatelessWidget {
   final List<dynamic>? carouselData;
@@ -73,10 +74,10 @@ class anilistCarousel extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
-            title ?? '??',
+            I18nUtil.translate(context, '$title'),
             style: TextStyle(
               fontSize: 16,
-              fontFamily: 'BalsamiqSans',
+              fontFamily: 'BalsamiqSans-Bold',
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.primary,
             ),

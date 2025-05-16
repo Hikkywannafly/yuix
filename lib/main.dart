@@ -22,9 +22,12 @@ import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   await Hive.initFlutter();
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

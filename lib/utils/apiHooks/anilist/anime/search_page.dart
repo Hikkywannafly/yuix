@@ -22,7 +22,7 @@ Future<List<Map<String, dynamic>>> fetchAnimeBySearch(String query) async {
             large
           }
           type
-          averageScore
+          averageScore  `
         }
       }
     }

@@ -1,3 +1,5 @@
+import 'package:provider/provider.dart';
+import 'package:yuix/hiveData/appData/database.dart';
 import 'package:yuix/main.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -166,6 +168,11 @@ class _LoginPageState extends State<LoginPage> {
         password: passwordController.text,
       );
       if (userCredential.user != null) {
+        // save login data to Hive
+        final appData = Provider.of<AppData>(context, listen: false);
+        await appData.saveLoginData(
+            userCredential.user!.email!, passwordController.text);
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const MainApp()),

@@ -31,8 +31,15 @@
     "introduction": "Chào {username}, bạn đang làm gì?",
     "introduction2": "Tìm phim yêu thích",
     "currently_reading": "Đang đọc",
-    "currently_watching": "Đang xem"
+    "currently_watching": "Đang xem",
+    "favorites": "Yêu thích"
     },
+    "anime_page":{
+
+    },
+"system": {
+  
+},
     "sources": "Nguồn",
     "switch_sources_description": "Chuyển đổi nguồn cho Anime và Manga",
     "ui": "Giao diện",
